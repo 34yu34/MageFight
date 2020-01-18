@@ -185,7 +185,8 @@ MonoBehaviour:
   team: 0
   target: {fileID: 0}
   tile: {fileID: 0}
-  projectile: {fileID: 8457224489364819489}
+  projectile: {fileID: 4558189922289625757, guid: 2756b66b071d7514aad317b428be908d,
+    type: 3}
   health:
     basic: 1200
     curr: 0

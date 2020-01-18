@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     public Character target;
     public float damage;
     public float time;
-    const float animation_time = 0.5f;
+    const float animation_time = 0.75f;
     bool has_att = false;
 
 
@@ -33,7 +33,6 @@ public class Projectile : MonoBehaviour
             if (time > 0)
             {
                 Vector3 distance = (target.GetComponent<Transform>().position - GetComponent<Transform>().position);
-                Debug.Log(distance);
                 GetComponent<Transform>().Translate((distance * Time.deltaTime / time));
                 time -= Time.deltaTime;
             }

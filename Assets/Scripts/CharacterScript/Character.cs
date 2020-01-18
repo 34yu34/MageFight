@@ -120,7 +120,6 @@ public abstract class Character : MonoBehaviour
         for(int i = 0; i < ennemies.Count; ++i)
         {
             float new_distance = (ennemies[i].GetComponent<Transform>().position - GetComponent<Transform>().position).sqrMagnitude;
-            Debug.Log(new_distance);
             if (new_distance < distance && ennemies[i].Is_alive() && ennemies[i].Is_on_board())
             {
                 target = ennemies[i];
