@@ -23,16 +23,34 @@ public class Buy_Menu : MonoBehaviour
     public void On_Buy_Button(int Type)
     {
         Character_Type Char_Type = (Character_Type)Type;
-        
-        switch (Char_Type)
+
+        GameObject[] GameObject_tiles = GameObject.FindGameObjectsWithTag("Tile");
+        List<Tile> empty_tiles = new List<Tile>();
+        foreach (GameObject GameObject_tile in GameObject_tiles)
         {
-            case Character_Type.Air:
-                Instantiate(Air_Mage_Prefab, new Vector3(0, 0, 0), Quaternion.identity);
-                break;
-            case Character_Type.Fire:
-                Instantiate(Fire_Mage_Prefab, new Vector3(0, 0, 0), Quaternion.identity);
-                break;
+            Tile tile = GameObject_tile.GetComponent<Tile>();
+            if (tile != null)
+            {
+                if (tile.occupant == null && !tile.is_playable)
+                    empty_tiles.Add(GameObject_tile.GetComponent<Tile>());
+            }
         }
         
+        if (empty_tiles.Count > 0)
+        {
+            Vector3 spawn_position = empty_tiles[0].transform.position;
+
+            switch (Char_Type)
+            {
+                case Character_Type.Air:
+                    Instantiate(Air_Mage_Prefab, spawn_position, Quaternion.identity);
+                    empty_tiles[0].occupant = Air_Mage_Prefab.GetComponent<Character>();
+                    break;
+                case Character_Type.Fire:
+                    Instantiate(Fire_Mage_Prefab, spawn_position, Quaternion.identity);
+                    empty_tiles[0].occupant = Fire_Mage_Prefab.GetComponent<Character>();
+                    break;
+            }
+        }
     }
 }
