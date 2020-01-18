@@ -7,13 +7,15 @@ public class Drag_And_Drop : MonoBehaviour
     private GameObject _target;
     public Vector3 screen_space;
     public Vector3 offset;
+    private Vector3 original_pos;
+    private bool has_original_pos = false;
 
     // Update is called once per frame
     void Update()
     {
         Cursor.visible = !_mouse_state;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))// TODO && Game.Instance.state == Game.State.Buying)
         {
 
             RaycastHit hit_info;
@@ -23,6 +25,11 @@ public class Drag_And_Drop : MonoBehaviour
                 _mouse_state = true;
                 screen_space = Camera.main.WorldToScreenPoint(_target.transform.position);
                 offset = _target.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screen_space.z));
+                if (!has_original_pos)
+                {
+                    original_pos = _target.GetComponent<Character>().transform.position;
+                    has_original_pos = true;
+                }
             }
         }
         if (Input.GetMouseButtonUp(0))
@@ -30,12 +37,8 @@ public class Drag_And_Drop : MonoBehaviour
             if (_target)
             {
                 _mouse_state = false;
-
-                //check tile la plus proche
-                GameObject closest_tile = Find_closest_tile(_target.transform.position);
-                _target.GetComponent<Character>().tile = closest_tile.GetComponent<Tile>();
-                //new pos = milieux de la tile
-                _target.transform.position = closest_tile.transform.position + (new Vector3(0, 2, 0));
+                Drop(_target);
+               
             }
         }
         if (_mouse_state)
@@ -47,6 +50,26 @@ public class Drag_And_Drop : MonoBehaviour
             cur_position.y = _target.transform.position.y;
             _target.transform.position = cur_position;
         }
+    }
+
+    public void Drop(GameObject target)
+    {
+        //check tile la plus proche
+        GameObject closest_tile = Find_closest_tile(target.transform.position);
+        Tile tuile = closest_tile.GetComponent<Tile>();
+        Character character = target.GetComponent<Character>();
+        Vector3 new_spot = (has_original_pos) ? original_pos : character.transform.position;
+        has_original_pos = false;
+        if (tuile.Is_available())
+        {
+            //quit old tile to new tile
+            if (character.tile != null) { character.tile.Leave(); }
+            character.tile = tuile;
+            tuile.SetFoot(ref character);
+            //new pos = milieux de la tile
+            new_spot = closest_tile.transform.position + (new Vector3(0, 2, 0));
+        }
+        target.transform.position = new_spot;
     }
 
     GameObject Get_clicked_object(out RaycastHit hit)
