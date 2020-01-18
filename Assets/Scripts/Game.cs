@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    private static Game instance = null;
-    public List<Player> players;
+    public static Game instance = null;
+    public Player player1;
+    public Player player2;
 
     public State state;
 
@@ -25,9 +26,9 @@ public class Game : MonoBehaviour
     {
         get
         {
-            if (instance != null)
+            if (instance == null)
             {
-                instance = new Game();
+                instance = GameObject.FindGameObjectWithTag("Global").GetComponent<Game>();
             }
             return instance;
         }
@@ -35,23 +36,6 @@ public class Game : MonoBehaviour
 
     public Player Get_other_player(int team)
     {
-        for (int i = 0; i < players.Count; ++i)
-        {
-            if (players[i].team != team)
-            {
-                return players[i];
-            }
-        }
-        return null;
-    }
-
-    public void Start()
-    {
-        
-    }
-
-    public void Update()
-    {
-        
+        return (team == 0) ? player2 : player1;
     }
 }

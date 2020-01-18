@@ -24,12 +24,7 @@ public abstract class Character : MonoBehaviour
     public Stat lifesteal;
 
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    public void Set_val()
+    protected virtual void Start()
     {
         health = new Stat(health.basic);
         mana = new Stat(mana.basic);
@@ -71,9 +66,8 @@ public abstract class Character : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        Debug.Log("hey");
         switch (Game.Instance.state)
         {
             case Game.State.Fighting:
@@ -110,7 +104,8 @@ public abstract class Character : MonoBehaviour
             {
                 target = null;
             }
-            Invoke("Launch_attack", 1000 / att_speed.curr);
+            Debug.Log((int)(1.0f / att_speed.curr));
+            Invoke("Launch_attack", (int)(1.0f / att_speed.curr));
         }
     }
 
@@ -119,11 +114,13 @@ public abstract class Character : MonoBehaviour
     public void Find_target()
     {
         List<Character> ennemies = Game.Instance.Get_other_player(team).characters;
-        float distance = 300;
+        float distance = 3000000.0f;
 
-        for(int i = 1; i < ennemies.Count; ++i)
+
+        for(int i = 0; i < ennemies.Count; ++i)
         {
             float new_distance = (ennemies[i].GetComponent<Transform>().position - GetComponent<Transform>().position).sqrMagnitude;
+            Debug.Log(new_distance);
             if (new_distance < distance && ennemies[i].Is_alive() && ennemies[i].Is_on_board())
             {
                 target = ennemies[i];

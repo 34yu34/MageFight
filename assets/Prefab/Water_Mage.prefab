@@ -92,27 +92,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71de201322b64044f976ad529bd28807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_on_board: 1
   team: 0
+  target: {fileID: 0}
   tile: {fileID: 0}
   health:
     basic: 0
+    curr: 0
   mana:
     basic: 0
+    curr: 0
   energy:
     basic: 0
+    curr: 0
   energy_remover:
     basic: 0
+    curr: 0
   att_damage:
     basic: 0
+    curr: 0
   att_speed:
     basic: 0
+    curr: 0
   crit_chance:
     basic: 0
+    curr: 0
   crit_damage_mult:
     basic: 0
+    curr: 0
   lifesteal:
     basic: 0
+    curr: 0
 --- !u!1 &8457224489364819489
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +134,7 @@ GameObject:
   - component: {fileID: 3744917099894712025}
   - component: {fileID: 8457224489364819490}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Water_Mage
   m_TagString: Mage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,24 +181,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5b6618d089ca64e81cd643d055e2cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_on_board: 0
   team: 0
+  target: {fileID: 0}
   tile: {fileID: 0}
   health:
-    basic: 0
+    basic: 1200
+    curr: 0
   mana:
-    basic: 0
+    basic: 100
+    curr: 0
   energy:
-    basic: 0
+    basic: 1000
+    curr: 0
   energy_remover:
-    basic: 0
+    basic: 200
+    curr: 0
   att_damage:
-    basic: 0
+    basic: 50
+    curr: 0
   att_speed:
-    basic: 0
+    basic: 1
+    curr: 0
   crit_chance:
-    basic: 0
+    basic: 0.15
+    curr: 0
   crit_damage_mult:
-    basic: 0
+    basic: 2
+    curr: 0
   lifesteal:
     basic: 0
+    curr: 0
