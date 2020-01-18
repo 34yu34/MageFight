@@ -2,25 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireMage : Character
+public class Player : MonoBehaviour
 {
-    public FireMage()
-    {
-    }
+
+    public List<Character> characters;
+    public int team;
 
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    public override void Launch_ability()
-    {
-
     }
 }
