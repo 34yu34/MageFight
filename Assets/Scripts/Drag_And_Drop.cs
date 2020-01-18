@@ -76,9 +76,16 @@ public class Drag_And_Drop : MonoBehaviour
         else if (target.GetComponent<Tile>() != null)
         {
             Tile Tile_to_add = target.GetComponent<Tile>();
-            Tile_to_add.transform.position = closest_tile.GetComponent<Transform>().position;
-            Tile_to_add.is_placed = true;
-            Destroy(closest_tile);
+            if (tuile.is_replaceable)
+            {
+                Tile_to_add.transform.position = closest_tile.GetComponent<Transform>().position;
+                Tile_to_add.is_placed = true;
+                Destroy(closest_tile);
+            }
+            else
+            {
+                Tile_to_add.transform.position = (has_original_pos) ? original_pos : Tile_to_add.transform.position;
+            }
         }
     }
 
