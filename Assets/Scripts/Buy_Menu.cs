@@ -50,7 +50,7 @@ public class Buy_Menu : MonoBehaviour
                     break;
             }
             Character mage = new_mage.GetComponent<Character>();
-            empty_tiles[0].SetFoot(ref mage);
+            empty_tiles[0].Occupy(ref mage);
             mage.tile = empty_tiles[0];
         }
     }

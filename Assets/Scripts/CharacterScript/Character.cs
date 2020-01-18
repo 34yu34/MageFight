@@ -26,6 +26,9 @@ public abstract class Character : MonoBehaviour
     public Stat crit_damage_mult;
     public Stat lifesteal;
 
+    public float debuf;
+    public float energy_treshold;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -38,14 +41,31 @@ public abstract class Character : MonoBehaviour
         crit_chance = new Stat(crit_chance.basic);
         crit_damage_mult = new Stat(crit_damage_mult.basic);
         lifesteal = new Stat(lifesteal.basic);
+        debuf = 0.3f;
+        energy_treshold = 0.5f;
     }
 
     public void Reset_round()
     {
         health.curr = health.Actual();
         mana.curr = 0;
+        Remove_energy();
+    }
+
+    private void Remove_energy()
+    {
         energy.curr -= energy_remover.curr;
         target = null;
+        if(energy.curr <= energy.basic*energy_treshold)
+        {
+            //apply permanent debuf
+            health.Remove_mult(debuf);
+            mana.Remove_mult(debuf);
+            att_damage.Remove_mult(debuf);
+            att_speed.Remove_mult(debuf);
+            crit_chance.Remove_mult(debuf);
+            crit_damage_mult.Remove_mult(debuf);
+        }
     }
 
     public void Take_damage(float dmg)
