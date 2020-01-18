@@ -31,26 +31,27 @@ public class Buy_Menu : MonoBehaviour
             Tile tile = GameObject_tile.GetComponent<Tile>();
             if (tile != null)
             {
-                if (tile.occupant == null && !tile.is_playable)
+                if (tile.Is_available() && !tile.is_playable)
                     empty_tiles.Add(GameObject_tile.GetComponent<Tile>());
             }
         }
         
         if (empty_tiles.Count > 0)
         {
-            Vector3 spawn_position = empty_tiles[0].transform.position;
-
+            Vector3 spawn_position = empty_tiles[0].transform.position + (new Vector3(0,3,0));
+            GameObject new_mage = null;
             switch (Char_Type)
             {
                 case Character_Type.Air:
-                    Instantiate(Air_Mage_Prefab, spawn_position, Quaternion.identity);
-                    empty_tiles[0].occupant = Air_Mage_Prefab.GetComponent<Character>();
+                    new_mage = Instantiate(Air_Mage_Prefab, spawn_position, Quaternion.identity);
                     break;
                 case Character_Type.Fire:
-                    Instantiate(Fire_Mage_Prefab, spawn_position, Quaternion.identity);
-                    empty_tiles[0].occupant = Fire_Mage_Prefab.GetComponent<Character>();
+                    new_mage = Instantiate(Fire_Mage_Prefab, spawn_position, Quaternion.identity);
                     break;
             }
+            Character mage = new_mage.GetComponent<Character>();
+            empty_tiles[0].SetFoot(ref mage);
+            mage.tile = empty_tiles[0];
         }
     }
 }
