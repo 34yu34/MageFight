@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     public Character sender;
     public float damage;
     public float time;
-    const float animation_time = 0.75f;
+    public const float animation_time = 0.75f;
     bool has_att = false;
 
 

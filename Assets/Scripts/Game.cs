@@ -12,17 +12,36 @@ public class Game : MonoBehaviour
     public int health_settings;
     public State state;
 
+    private int frameCount;
+
     public enum State
     {
         Fighting,
         Planning,
         Terrain,
+        Reset,
         Buying
     }
     
     private Game()
     {
         state = State.Buying;
+        frameCount = 0;
+    }
+
+    private void Update()
+    {
+        if(state == State.Reset)
+        {
+            frameCount++;
+
+            if(frameCount > 50)
+            {
+                Reset_characters();
+                state = State.Buying;
+                frameCount = 0;
+            }
+        }
     }
 
     public static Game Instance
@@ -42,10 +61,33 @@ public class Game : MonoBehaviour
         foreach (Character character in player1.characters)
         {
             character.Reset_round();
+            Snap_to_base(character);
         }
         foreach (Character character in player2.characters)
         {
             character.Reset_round();
+        }
+    }
+
+    private void Snap_to_base(Character character)
+    {
+        GameObject[] GameObject_tiles = GameObject.FindGameObjectsWithTag("Tile");
+        List<Tile> empty_tiles = new List<Tile>();
+        foreach (GameObject GameObject_tile in GameObject_tiles)
+        {
+            Tile tile = GameObject_tile.GetComponent<Tile>();
+            if (tile != null)
+            {
+                if (tile.Is_available() && !tile.is_playable)
+                    empty_tiles.Add(GameObject_tile.GetComponent<Tile>());
+            }
+        }
+
+        if (empty_tiles.Count > 0)
+        {
+            Vector3 spawn_position = empty_tiles[0].transform.position + (new Vector3(0, 3, 0));
+            character.transform.position = spawn_position;
+            empty_tiles[0].SetFoot(ref character);
         }
     }
 
