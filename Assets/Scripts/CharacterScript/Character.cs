@@ -49,8 +49,21 @@ public abstract class Character : MonoBehaviour
 
     public void Take_damage(float dmg)
     {
+        if(!Is_alive())
+        {
+            return;
+        }
         health.curr -= dmg;
-        health.curr = health.curr> 0 ? health.curr : 0;
+        if(health.curr <= 0)
+        {
+            health.curr = 0;
+            //play death sound
+            GameObject sound_maker = GameObject.Find("death_sound");
+            if(sound_maker)
+            {
+                sound_maker.GetComponent<Sound>().Die();
+            }
+        }
     }
 
     public void heal(float life)
@@ -106,6 +119,7 @@ public abstract class Character : MonoBehaviour
         {
             Instantiate(projectile, GetComponent<Transform>().position, GetComponent<Transform>().rotation).GetComponent<Projectile>().set_target(target, Calculate_damage(), this);
             mana.curr += mana_on_attack;
+            GetComponent<AudioSource>().Play();
             if (mana.curr >= mana.Actual())
             {
                 Launch_ability();
