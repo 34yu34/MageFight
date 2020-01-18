@@ -54,9 +54,12 @@ public class Drag_And_Drop : MonoBehaviour
 
     public void Drop(GameObject target)
     {
+        Debug.Log("TESTLOG target: " + target);
         //check tile la plus proche
         GameObject closest_tile = Find_closest_tile(target.transform.position);
+        Debug.Log("TESTLOG closest_tile: " + closest_tile);
         Tile tuile = closest_tile.GetComponent<Tile>();
+        Debug.Log("TESTLOG tuile: " + tuile);
         if (target.GetComponent<Character>() != null)
         {
             Character character = target.GetComponent<Character>();
@@ -115,6 +118,12 @@ public class Drag_And_Drop : MonoBehaviour
     {
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("Tile");
+        Debug.Log("TESTLOG gos: " + gos);
+        Debug.Log("TESTLOG gos.Length: " + gos.Length);
+        Debug.Log("TESTLOG gos[0]: " + gos[0]);
+        Debug.Log("TESTLOG gos[1]: " + gos[1]);
+        Debug.Log("TESTLOG gos[2]: " + gos[2]);
+        Debug.Log("TESTLOG gos[3]: " + gos[3]);
         GameObject closest = null;
         float distance = Mathf.Infinity;
         foreach (GameObject go in gos)
@@ -123,6 +132,7 @@ public class Drag_And_Drop : MonoBehaviour
             float curDistance = diff.sqrMagnitude;
             if (curDistance < distance && !(curDistance < 0.1f))
             {
+                Debug.Log("TESTLOG go: " + go);
                 closest = go;
                 distance = curDistance;
             }
