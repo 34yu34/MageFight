@@ -1804,9 +1804,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e304b40c66b072745a9731cf845ff52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Air_Mage_Prefab: {fileID: 6056248925819401660, guid: 004a25519b0d5274fbdc082618e86970,
+  Air_Mage_Prefab: {fileID: 6274367639175233260, guid: e14370abb91a9944ca2a2cad99a162a6,
     type: 3}
-  Fire_Mage_Prefab: {fileID: 0}
+  Fire_Mage_Prefab: {fileID: 6056248925819401660, guid: 004a25519b0d5274fbdc082618e86970,
+    type: 3}
 --- !u!1001 &938792982
 PrefabInstance:
   m_ObjectHideFlags: 0
