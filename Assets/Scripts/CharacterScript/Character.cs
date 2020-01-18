@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
-using Character_Enum;
 
 
 public abstract class Character : MonoBehaviour
@@ -10,7 +9,6 @@ public abstract class Character : MonoBehaviour
     static float mana_on_attack = 10.0f;
 
     public int team;
-    public Character_Type Type;
     public Timer timer = null;
     public Character target = null;
     public Tile tile = null;
@@ -30,7 +28,7 @@ public abstract class Character : MonoBehaviour
     public float energy_treshold;
 
     // Start is called before the first frame update
-    protected virtual void Start()
+    public virtual void Start()
     {
         health = new Stat(health.basic);
         mana = new Stat(mana.basic);
@@ -43,6 +41,7 @@ public abstract class Character : MonoBehaviour
         lifesteal = new Stat(lifesteal.basic);
         debuf = 0.3f;
         energy_treshold = 0.5f;
+        gameObject.tag = "Mage";
     }
 
     public void Reset_round()

@@ -82,7 +82,7 @@ MonoBehaviour:
     basic: 200
     curr: 0
   att_damage:
-    basic: 70
+    basic: 75
     curr: 0
   att_speed:
     basic: 0.5
