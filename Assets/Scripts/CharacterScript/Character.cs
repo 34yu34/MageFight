@@ -40,7 +40,7 @@ public abstract class Character : MonoBehaviour
         lifesteal = new Stat(lifesteal.basic);
     }
 
-    void Reset_round()
+    public void Reset_round()
     {
         health.curr = health.Actual();
         mana.curr = 0;
@@ -53,12 +53,12 @@ public abstract class Character : MonoBehaviour
         health.curr = health.curr> 0 ? health.curr : 0;
     }
 
-    bool Is_alive()
+    public bool Is_alive()
     {
         return (health.curr > 0);
     }
 
-    bool Is_on_board()
+    public bool Is_on_board()
     {
         return tile != null && tile.is_playable;
     }
@@ -74,10 +74,13 @@ public abstract class Character : MonoBehaviour
         switch (Game.Instance.state)
         {
             case Game.State.Fighting:
-                if (Is_on_board())
+                if (Is_on_board() && Is_alive())
                 {
                     Fighting();
                 }
+                break;
+            case Game.State.Buying:
+                
                 break;
         }
     }
@@ -93,7 +96,7 @@ public abstract class Character : MonoBehaviour
 
     public void Launch_attack()
     {
-        if (target != null && Is_alive())
+        if (target != null && this.Is_alive() && target.Is_alive())
         {
             Instantiate(projectile, GetComponent<Transform>().position, GetComponent<Transform>().rotation).GetComponent<Projectile>().set_target(target, Calculate_damage());
             mana.curr += mana_on_attack;
@@ -103,11 +106,15 @@ public abstract class Character : MonoBehaviour
                 mana.curr = 0;
             }
 
-            if (!target.Is_alive())
+            /*if (!target.Is_alive())
             {
                 target = null;
-            }
+            }*/
             Invoke("Launch_attack", (1.0f / att_speed.curr));
+        }
+        else
+        {
+            target = null;
         }
     }
 
@@ -127,6 +134,11 @@ public abstract class Character : MonoBehaviour
                 target = ennemies[i];
                 distance = new_distance;
             }
+        }
+        if(target == null)
+        {
+            Game.Instance.state = Game.State.Buying;
+            //Game.Instance.Reset_characters();
         }
     }
 }
