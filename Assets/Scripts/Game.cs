@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Game
+public class Game : MonoBehaviour
 {
     private static Game instance = null;
-    private List<Player> players;
+    public List<Player> players;
 
     public State state;
 
@@ -43,5 +43,15 @@ public class Game
             }
         }
         return null;
+    }
+
+    public void Start()
+    {
+        
+    }
+
+    public void Update()
+    {
+        
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Stat
 {
     public float basic;
-    [System.NonSerialized]
+    //[System.NonSerialized]
     public float curr;
     private float actual;
     private List<float> _bonus_mult;
@@ -17,7 +17,7 @@ public class Stat
         set_val(basic_val);
     }
 
-    void set_val(float val)
+    public void set_val(float val)
     {
         basic = val;
         curr = val;

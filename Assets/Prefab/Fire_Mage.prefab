@@ -138,24 +138,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71de201322b64044f976ad529bd28807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_on_board: 0
   team: 0
   tile: {fileID: 0}
   health:
     basic: 1000
+    curr: 0
   mana:
     basic: 100
+    curr: 0
   energy:
     basic: 1000
+    curr: 0
   energy_remover:
     basic: 200
+    curr: 0
   att_damage:
     basic: 60
+    curr: 0
   att_speed:
     basic: 1
+    curr: 0
   crit_chance:
     basic: 0.15
+    curr: 0
   crit_damage_mult:
     basic: 2
+    curr: 0
   lifesteal:
     basic: 0
+    curr: 0

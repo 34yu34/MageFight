@@ -8,10 +8,9 @@ public abstract class Character : MonoBehaviour
 {
     static float mana_on_attack = 10.0f;
 
-    public bool is_on_board;
     public int team;
     public Timer timer = null;
-    Character target;
+    public Character target = null;
     public Tile tile = null;
 
     public Stat health;
@@ -27,6 +26,20 @@ public abstract class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    public void Set_val()
+    {
+        health = new Stat(health.basic);
+        mana = new Stat(mana.basic);
+        energy = new Stat(energy.basic);
+        energy_remover = new Stat(energy_remover.basic);
+        att_damage = new Stat(att_damage.basic);
+        att_speed = new Stat(att_speed.basic);
+        crit_chance = new Stat(crit_chance.basic);
+        crit_damage_mult = new Stat(crit_damage_mult.basic);
+        lifesteal = new Stat(lifesteal.basic);
     }
 
     void Reset_round()
@@ -60,6 +73,7 @@ public abstract class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("hey");
         switch (Game.Instance.state)
         {
             case Game.State.Fighting:
