@@ -33,6 +33,7 @@ public class Drag_And_Drop : MonoBehaviour
 
                 //check tile la plus proche
                 GameObject closest_tile = Find_closest_tile(_target.transform.position);
+                _target.GetComponent<Character>().tile = closest_tile.GetComponent<Tile>();
                 //new pos = milieux de la tile
                 _target.transform.position = closest_tile.transform.position + (new Vector3(0, 2, 0));
             }

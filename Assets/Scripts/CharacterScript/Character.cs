@@ -12,6 +12,7 @@ public abstract class Character : MonoBehaviour
     public int team;
     public Timer timer = null;
     Character target;
+    public Tile tile = null;
 
     public Stat health;
     public Stat mana;
@@ -46,6 +47,11 @@ public abstract class Character : MonoBehaviour
         return (health.curr > 0);
     }
 
+    bool Is_on_board()
+    {
+        return tile != null && tile.is_playable;
+    }
+
     float Calculate_damage()
     {
         return (Random.Range(0.0f, 1.0f) < crit_chance.curr) ? (int)((float)att_damage.curr * crit_damage_mult.curr) : att_damage.curr;
@@ -57,7 +63,10 @@ public abstract class Character : MonoBehaviour
         switch (Game.Instance.state)
         {
             case Game.State.Fighting:
-                Fighting();
+                if (Is_on_board())
+                {
+                    Fighting();
+                }
                 break;
         }
     }
@@ -96,13 +105,12 @@ public abstract class Character : MonoBehaviour
     public void Find_target()
     {
         List<Character> ennemies = Game.Instance.Get_other_player(team).characters;
-        float distance = (ennemies[0].GetComponent<Transform>().position - GetComponent<Transform>().position).sqrMagnitude;
-        target = ennemies[0];
+        float distance = 300;
 
         for(int i = 1; i < ennemies.Count; ++i)
         {
             float new_distance = (ennemies[i].GetComponent<Transform>().position - GetComponent<Transform>().position).sqrMagnitude;
-            if (new_distance < distance && ennemies[i].Is_alive())
+            if (new_distance < distance && ennemies[i].Is_alive() && ennemies[i].Is_on_board())
             {
                 target = ennemies[i];
                 distance = new_distance;
