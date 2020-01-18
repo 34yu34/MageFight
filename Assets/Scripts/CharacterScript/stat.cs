@@ -6,7 +6,6 @@ using UnityEngine;
 public class Stat
 {
     public float basic;
-    //[System.NonSerialized]
     public float curr;
     private float actual;
     private List<float> _bonus_mult;
