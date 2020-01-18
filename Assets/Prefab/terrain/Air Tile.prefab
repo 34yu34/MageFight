@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4366762547273265255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.620346, y: 28.181984, z: 3.1833782}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1969685495201120086}
@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is_playable: 1
   is_dropable: 1
+  is_placed: 0
+  is_replaceable: 1
   occupant: {fileID: 0}
 --- !u!1001 &1964898398506212138
 PrefabInstance:

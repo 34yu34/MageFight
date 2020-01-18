@@ -6,6 +6,8 @@ public class Tile : MonoBehaviour
 {
     public bool is_playable;
     public bool is_dropable;
+    public bool is_placed;
+    public bool is_replaceable;
     public Character occupant = null;
 
     public bool SetFoot(ref Character newOccupant)
