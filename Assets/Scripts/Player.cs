@@ -6,16 +6,17 @@ public class Player : MonoBehaviour
 {
 
     public List<Character> characters;
+    public int player_health;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
