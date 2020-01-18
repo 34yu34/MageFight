@@ -10,7 +10,7 @@ public abstract class Tile : MonoBehaviour
     public bool is_replaceable;
     public Character occupant = null;
 
-    public bool SetFoot(ref Character new_occupant)
+    public bool Occupy(ref Character new_occupant)
     {
         if(Is_available())
         {

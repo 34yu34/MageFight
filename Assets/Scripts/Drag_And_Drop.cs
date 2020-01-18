@@ -65,7 +65,7 @@ public class Drag_And_Drop : MonoBehaviour
             if (tuile.Is_available())
             {
                 //quit old tile to new tile
-                tuile.SetFoot(ref character);
+                tuile.Occupy(ref character);
                 //new pos = milieux de la tile
                 new_spot = closest_tile.transform.position + (new Vector3(0, 2, 0));
             }
