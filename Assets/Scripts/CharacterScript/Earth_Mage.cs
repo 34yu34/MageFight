@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireMage : Character
+public class Earth_Mage: Character
 {
-    public FireMage()
+    public Earth_Mage()
     {
     }
 
@@ -25,3 +25,4 @@ public class FireMage : Character
 
     }
 }
+

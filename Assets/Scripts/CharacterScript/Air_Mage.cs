@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterMage : Character
+public class Air_Mage : Character
 {
-    public WaterMage()
+    Air_Mage()
     {
+
     }
-    
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -19,6 +20,7 @@ public class WaterMage : Character
     {
         base.Update();
     }
+
     public override void Launch_ability()
     {
 
