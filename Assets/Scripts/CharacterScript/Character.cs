@@ -45,6 +45,7 @@ public abstract class Character : MonoBehaviour
         health.curr = health.Actual();
         mana.curr = 0;
         energy.curr -= energy_remover.curr;
+        target = null;
     }
 
     public void Take_damage(float dmg)
@@ -99,7 +100,6 @@ public abstract class Character : MonoBehaviour
                 }
                 break;
             case Game.State.Buying:
-                
                 break;
         }
     }
@@ -126,10 +126,6 @@ public abstract class Character : MonoBehaviour
                 mana.curr = 0;
             }
 
-            /*if (!target.Is_alive())
-            {
-                target = null;
-            }*/
             Invoke("Launch_attack", (1.0f / att_speed.curr));
         }
         else
@@ -158,7 +154,7 @@ public abstract class Character : MonoBehaviour
         if(target == null)
         {
             Game.Instance.state = Game.State.Buying;
-            //Game.Instance.Reset_characters();
+            Game.Instance.Reset_characters();
         }
     }
 }

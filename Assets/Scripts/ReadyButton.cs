@@ -19,7 +19,7 @@ public class ReadyButton : MonoBehaviour
         else if (Game.Instance.state == Game.State.Buying)
         {
             Game.Instance.state = Game.State.Planning;
-            Game.Instance.Reset_characters();
+            //Game.Instance.Reset_characters();
         }
     }
 

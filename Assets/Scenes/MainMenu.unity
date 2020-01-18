@@ -1435,7 +1435,9 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8457224489364819490, guid: 6e6de3b031cf1f24aa0a535b3a34f81a, type: 3}
+    - {fileID: 7779131613031163298, guid: 6e6de3b031cf1f24aa0a535b3a34f81a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6e6de3b031cf1f24aa0a535b3a34f81a, type: 3}
 --- !u!1001 &128180771
 PrefabInstance:
@@ -3178,7 +3180,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5747758842285124830, guid: e78eb98e9838ee14db28739047319eff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e78eb98e9838ee14db28739047319eff, type: 3}
 --- !u!1001 &296459764
 PrefabInstance:
@@ -4247,7 +4250,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4130328368527852959, guid: 004a25519b0d5274fbdc082618e86970, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 004a25519b0d5274fbdc082618e86970, type: 3}
 --- !u!1001 &377280928
 PrefabInstance:
@@ -4633,7 +4637,9 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8457224489364819490, guid: 6e6de3b031cf1f24aa0a535b3a34f81a, type: 3}
+    - {fileID: 7779131613031163298, guid: 6e6de3b031cf1f24aa0a535b3a34f81a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6e6de3b031cf1f24aa0a535b3a34f81a, type: 3}
 --- !u!4 &421751667 stripped
 Transform:
@@ -8882,7 +8888,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4130328368527852959, guid: 004a25519b0d5274fbdc082618e86970, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 004a25519b0d5274fbdc082618e86970, type: 3}
 --- !u!1001 &866799835
 PrefabInstance:
@@ -10243,7 +10250,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6739618867549829257, guid: e14370abb91a9944ca2a2cad99a162a6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e14370abb91a9944ca2a2cad99a162a6, type: 3}
 --- !u!1001 &1037536633
 PrefabInstance:
@@ -12784,7 +12792,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6739618867549829257, guid: e14370abb91a9944ca2a2cad99a162a6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e14370abb91a9944ca2a2cad99a162a6, type: 3}
 --- !u!1001 &1313625355
 PrefabInstance:
@@ -13647,7 +13656,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5747758842285124830, guid: e78eb98e9838ee14db28739047319eff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e78eb98e9838ee14db28739047319eff, type: 3}
 --- !u!1001 &1398674281
 PrefabInstance:
@@ -13840,7 +13850,6 @@ GameObject:
   - component: {fileID: 1432185993}
   - component: {fileID: 1432185992}
   - component: {fileID: 1432185991}
-  - component: {fileID: 1432185994}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -13950,20 +13959,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432185989}
   m_CullTransparentMesh: 0
---- !u!114 &1432185994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432185989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2314a04c982bbf042a12c2f37f1fe040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isStart: 0
-  isQuit: 1
 --- !u!1001 &1432358895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14174,7 +14169,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6346622695677077342, guid: fa996c406ae7b51488cb74c0904827f4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa996c406ae7b51488cb74c0904827f4, type: 3}
 --- !u!1001 &1458036436
 PrefabInstance:
@@ -16829,7 +16825,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6346622695677077342, guid: fa996c406ae7b51488cb74c0904827f4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa996c406ae7b51488cb74c0904827f4, type: 3}
 --- !u!1 &1720088369
 GameObject:
