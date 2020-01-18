@@ -109,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 71982be591066184d958695cbf3d4875, type: 3}
       propertyPath: m_TagString
-      value: Tile
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 71982be591066184d958695cbf3d4875, type: 3}
       propertyPath: m_LocalPosition.x
