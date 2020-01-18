@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6550825258180224663}
-  - component: {fileID: 5029756652712843214}
+  - component: {fileID: 3873597730577246814}
   m_Layer: 0
   m_Name: Void Tile
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5029756652712843214
+--- !u!114 &3873597730577246814
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5439129807358890555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6acff781a726174db17ecf4a0061d4d, type: 3}
+  m_Script: {fileID: 11500000, guid: c48a2fc4d9e56d74b8e5cd5e8432a33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   is_playable: 1
@@ -49,6 +49,7 @@ MonoBehaviour:
   is_placed: 0
   is_replaceable: 1
   occupant: {fileID: 0}
+  LIFESTEAL_BONUS: 0.15
 --- !u!1001 &834352401095146434
 PrefabInstance:
   m_ObjectHideFlags: 0

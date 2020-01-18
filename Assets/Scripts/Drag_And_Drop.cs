@@ -65,8 +65,6 @@ public class Drag_And_Drop : MonoBehaviour
             if (tuile.Is_available())
             {
                 //quit old tile to new tile
-                if (character.tile != null) { character.tile.Leave(); }
-                character.tile = tuile;
                 tuile.SetFoot(ref character);
                 //new pos = milieux de la tile
                 new_spot = closest_tile.transform.position + (new Vector3(0, 2, 0));
@@ -123,7 +121,7 @@ public class Drag_And_Drop : MonoBehaviour
         {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
-            if (curDistance < distance)
+            if (curDistance < distance && !(curDistance < 0.1f))
             {
                 closest = go;
                 distance = curDistance;

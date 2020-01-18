@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8276136574130021508}
-  - component: {fileID: 3504482405577867533}
+  - component: {fileID: 5101378618727826819}
   m_Layer: 0
   m_Name: Fire Tile
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3504482405577867533
+--- !u!114 &5101378618727826819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4346321852393470135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6acff781a726174db17ecf4a0061d4d, type: 3}
+  m_Script: {fileID: 11500000, guid: e11be407ad00afc439ebb632f09a4137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   is_playable: 1
@@ -49,6 +49,7 @@ MonoBehaviour:
   is_placed: 0
   is_replaceable: 1
   occupant: {fileID: 0}
+  ATT_BONUS: 0.2
 --- !u!1001 &1437667150137871332
 PrefabInstance:
   m_ObjectHideFlags: 0

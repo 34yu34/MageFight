@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8063281137130644691}
   - component: {fileID: 8063281137133544691}
   - component: {fileID: 8063281137132414515}
-  - component: {fileID: 3710630397908165878}
+  - component: {fileID: 1738626794984944887}
   m_Layer: 0
   m_Name: Rest_tile
   m_TagString: Tile
@@ -79,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3710630397908165878
+--- !u!114 &1738626794984944887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,12 +88,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8063281137130158323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6acff781a726174db17ecf4a0061d4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a1feafc40928f249b9bc0470c3891c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   is_playable: 0
   is_dropable: 1
-  is_placed: 0
+  is_placed: 1
   is_replaceable: 0
   occupant: {fileID: 0}
 --- !u!1001 &8063281138035927605

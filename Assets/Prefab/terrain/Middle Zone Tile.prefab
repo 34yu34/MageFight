@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7661196344161465420}
-  - component: {fileID: 5791348134220085478}
+  - component: {fileID: 7977725560799296040}
   m_Layer: 0
   m_Name: Middle Zone Tile
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5791348134220085478
+--- !u!114 &7977725560799296040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +41,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8379949770098381896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6acff781a726174db17ecf4a0061d4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 309c9df3880e0e54a8b96f08b620107a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   is_playable: 0
   is_dropable: 0
   is_placed: 1
+  is_replaceable: 0
   occupant: {fileID: 0}
 --- !u!1001 &3021981127031067550
 PrefabInstance:

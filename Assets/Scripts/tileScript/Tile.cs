@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : MonoBehaviour
+public abstract class Tile : MonoBehaviour
 {
     public bool is_playable;
     public bool is_dropable;
@@ -10,36 +10,39 @@ public class Tile : MonoBehaviour
     public bool is_replaceable;
     public Character occupant = null;
 
-    public bool SetFoot(ref Character newOccupant)
+    public bool SetFoot(ref Character new_occupant)
     {
         if(Is_available())
         {
-            occupant = newOccupant;
-            //TODO: give ability to occupant
+            occupant = new_occupant;
+            add_passive(ref new_occupant);
+            if (occupant.tile != null)
+            {
+                occupant.tile.remove_passive();
+                occupant.tile.occupant = null;
+            }
+            occupant.tile = this;
             return true;
         }
         return false;
     }
+
+    public abstract void add_passive(ref Character occupant);
+    public abstract void remove_passive();
 
     public bool Is_available()
     {
         return (occupant == null);
     }
 
-    public void Leave()
-    {
-        occupant = null;
-        return;
-    }
-
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         
     }

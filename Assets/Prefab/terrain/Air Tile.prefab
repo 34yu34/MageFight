@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8700539778162753391}
-  - component: {fileID: 6432125393363037964}
+  - component: {fileID: 8777906627194791448}
   m_Layer: 0
   m_Name: Air Tile
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6432125393363037964
+--- !u!114 &8777906627194791448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4366762547273265255}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6acff781a726174db17ecf4a0061d4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 768a3a0911ed4a848a0a8f73b5a454fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   is_playable: 1
@@ -49,6 +49,7 @@ MonoBehaviour:
   is_placed: 0
   is_replaceable: 1
   occupant: {fileID: 0}
+  ATT_SPD_BONUS: 0.3
 --- !u!1001 &1964898398506212138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,11 +63,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4787460223657084, guid: cc0b6d4b15530d942bffb81f838c93fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.71
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4787460223657084, guid: cc0b6d4b15530d942bffb81f838c93fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4787460223657084, guid: cc0b6d4b15530d942bffb81f838c93fc, type: 3}
       propertyPath: m_LocalPosition.z

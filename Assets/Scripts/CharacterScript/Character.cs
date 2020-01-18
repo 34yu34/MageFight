@@ -53,6 +53,12 @@ public abstract class Character : MonoBehaviour
         health.curr = health.curr> 0 ? health.curr : 0;
     }
 
+    public void heal(float life)
+    {
+        health.curr += life;
+        health.curr = health.curr < health.Actual() ? health.curr : health.Actual();
+    }
+
     public bool Is_alive()
     {
         return (health.curr > 0);
@@ -98,7 +104,7 @@ public abstract class Character : MonoBehaviour
     {
         if (target != null && this.Is_alive() && target.Is_alive())
         {
-            Instantiate(projectile, GetComponent<Transform>().position, GetComponent<Transform>().rotation).GetComponent<Projectile>().set_target(target, Calculate_damage());
+            Instantiate(projectile, GetComponent<Transform>().position, GetComponent<Transform>().rotation).GetComponent<Projectile>().set_target(target, Calculate_damage(), this);
             mana.curr += mana_on_attack;
             if (mana.curr >= mana.Actual())
             {
