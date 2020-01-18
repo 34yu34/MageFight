@@ -5,6 +5,8 @@ using Character_Enum;
 
 public class Buy_Menu : MonoBehaviour
 {
+    public GameObject Air_Mage_Prefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +19,9 @@ public class Buy_Menu : MonoBehaviour
         
     }
 
-    void On_Buy_Button(Character_Type Type)
+    public void On_Buy_Button(int Type)
     {
-        Debug.Log(Type);
+        Character_Type Char_Type = (Character_Type)Type;
+        Instantiate(Air_Mage_Prefab, new Vector3(0, 0, 0), Quaternion.identity);
     }
 }

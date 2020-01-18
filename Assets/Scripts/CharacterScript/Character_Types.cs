@@ -1,4 +1,7 @@
-﻿namespace Character_Enum
+﻿using UnityEngine;
+using System.Collections;
+
+namespace Character_Enum
 {
     public enum Character_Type
     {
