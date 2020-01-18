@@ -1,17 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Character_Enum;
 
 public class Earth_Mage: Character
 {
     public Earth_Mage()
     {
-        Type = Character_Type.Earth;
     }
 
     // Start is called before the first frame update
-    protected override void Start()
+    public override void Start()
     {
         base.Start();
     }

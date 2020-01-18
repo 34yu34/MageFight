@@ -38,7 +38,7 @@ public abstract class Tile : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
-
+        gameObject.tag = "Tile";
     }
 
     // Update is called once per frame
