@@ -87,7 +87,7 @@ public class Game : MonoBehaviour
         {
             Vector3 spawn_position = empty_tiles[0].transform.position + (new Vector3(0, 3, 0));
             character.transform.position = spawn_position;
-            empty_tiles[0].SetFoot(ref character);
+            empty_tiles[0].Occupy(ref character);
         }
     }
 
