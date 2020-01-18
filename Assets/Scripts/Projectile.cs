@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Character target;
+    public Character sender;
     public float damage;
     public float time;
     const float animation_time = 0.75f;
@@ -17,12 +18,13 @@ public class Projectile : MonoBehaviour
         
     }
 
-    public void set_target(Character target_in, float damage_in)
+    public void set_target(Character target_in, float damage_in, Character sender_in)
     {
         target = target_in;
         time = animation_time;
         damage = damage_in;
         has_att = false;
+        sender = sender_in;
     }
 
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class Projectile : MonoBehaviour
                 if (!has_att)
                 {
                     target.Take_damage(damage);
+                    sender.heal(damage * sender.lifesteal.curr);
                     Destroy(gameObject);
                     has_att = true;
                 }

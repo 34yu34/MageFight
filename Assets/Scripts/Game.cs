@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
     public static Game instance = null;
     public Player player1;
     public Player player2;
+    public int health_settings;
     public State state;
 
     public enum State

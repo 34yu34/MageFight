@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  Type: 1
   target: {fileID: 0}
   tile: {fileID: 0}
   projectile: {fileID: 4562807949876205976, guid: e7ebf903260cde24197a8be4fad0efaa,
@@ -156,7 +157,7 @@ MonoBehaviour:
     basic: 200
     curr: 0
   att_damage:
-    basic: 55
+    basic: 75
     curr: 0
   att_speed:
     basic: 1.1

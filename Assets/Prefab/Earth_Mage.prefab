@@ -81,10 +81,10 @@ MonoBehaviour:
     basic: 200
     curr: 0
   att_damage:
-    basic: 80
+    basic: 70
     curr: 0
   att_speed:
-    basic: 0.6
+    basic: 0.5
     curr: 0
   crit_chance:
     basic: 0.15

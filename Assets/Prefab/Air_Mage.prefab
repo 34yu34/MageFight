@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  Type: 0
   target: {fileID: 0}
   tile: {fileID: 0}
   projectile: {fileID: 1903614483531604807, guid: 32f4cb0ddb8506c4d87660dd121ab971,
@@ -68,7 +69,7 @@ MonoBehaviour:
     basic: 1000
     curr: 0
   mana:
-    basic: 100
+    basic: 50
     curr: 0
   energy:
     basic: 1000
