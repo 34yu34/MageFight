@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2934231968294560889}
+  - component: {fileID: -9104379262900426960}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: death_sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,3 +31,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-9104379262900426960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455236249379153896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8cabe79ae8fda4fa54657e8a6106ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  death_sound:
+  - {fileID: 8300000, guid: aa7c48cacaa710d47b345a60839ce792, type: 3}
+  - {fileID: 8300000, guid: b766a79af29171242b880658bd1ef9e9, type: 3}
+  - {fileID: 8300000, guid: c9800a7aa4db16e45a22247ad0e6d83c, type: 3}
+  - {fileID: 8300000, guid: dd7ade4feabdf8f4c839de507a627a79, type: 3}
+  - {fileID: 8300000, guid: f2c06610d326e494c89c1e0d211d9552, type: 3}
