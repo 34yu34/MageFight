@@ -12,6 +12,7 @@ public abstract class Character : MonoBehaviour
     public Timer timer = null;
     public Character target = null;
     public Tile tile = null;
+    public GameObject projectile;
 
     public Stat health;
     public Stat mana;
@@ -44,7 +45,7 @@ public abstract class Character : MonoBehaviour
         energy.curr -= energy_remover.curr;
     }
 
-    void Take_damage(float dmg)
+    public void Take_damage(float dmg)
     {
         health.curr -= dmg;
         health.curr = health.curr> 0 ? health.curr : 0;
@@ -92,7 +93,7 @@ public abstract class Character : MonoBehaviour
     {
         if (target != null && Is_alive())
         {
-            target.Take_damage(Calculate_damage()); // TODO Projectil
+            Instantiate(projectile, GetComponent<Transform>().position, GetComponent<Transform>().rotation).GetComponent<Projectile>().set_target(target, Calculate_damage());
             mana.curr += mana_on_attack;
             if (mana.curr >= mana.Actual())
             {
@@ -104,8 +105,7 @@ public abstract class Character : MonoBehaviour
             {
                 target = null;
             }
-            Debug.Log((int)(1.0f / att_speed.curr));
-            Invoke("Launch_attack", (int)(1.0f / att_speed.curr));
+            Invoke("Launch_attack", (1.0f / att_speed.curr));
         }
     }
 
