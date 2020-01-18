@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  Type: 2
   target: {fileID: 0}
   tile: {fileID: 0}
   projectile: {fileID: 6861943897596501360, guid: bb698056847fc8a4ab97a84248252993,
@@ -77,10 +78,10 @@ MonoBehaviour:
     basic: 200
     curr: 0
   att_damage:
-    basic: 80
+    basic: 70
     curr: 0
   att_speed:
-    basic: 0.6
+    basic: 0.5
     curr: 0
   crit_chance:
     basic: 0.15
