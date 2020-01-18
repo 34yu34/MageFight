@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public bool is_playable;
+    public bool is_dropable;
     public Character occupant = null;
 
     public bool SetFoot(ref Character newOccupant)

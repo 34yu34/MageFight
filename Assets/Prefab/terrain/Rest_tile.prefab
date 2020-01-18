@@ -92,6 +92,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_playable: 0
+  is_dropable: 1
+  occupant: {fileID: 0}
 --- !u!1001 &8063281138035927605
 PrefabInstance:
   m_ObjectHideFlags: 0
