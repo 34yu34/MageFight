@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is_playable: 0
   is_dropable: 0
+  is_placed: 1
   occupant: {fileID: 0}
 --- !u!1001 &3021981127031067550
 PrefabInstance:

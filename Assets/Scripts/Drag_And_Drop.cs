@@ -27,7 +27,7 @@ public class Drag_And_Drop : MonoBehaviour
                 offset = _target.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screen_space.z));
                 if (!has_original_pos)
                 {
-                    original_pos = _target.GetComponent<Character>().transform.position;
+                    original_pos = _target.transform.position;
                     has_original_pos = true;
                 }
             }
@@ -57,19 +57,29 @@ public class Drag_And_Drop : MonoBehaviour
         //check tile la plus proche
         GameObject closest_tile = Find_closest_tile(target.transform.position);
         Tile tuile = closest_tile.GetComponent<Tile>();
-        Character character = target.GetComponent<Character>();
-        Vector3 new_spot = (has_original_pos) ? original_pos : character.transform.position;
-        has_original_pos = false;
-        if (tuile.Is_available())
+        if (target.GetComponent<Character>() != null)
         {
-            //quit old tile to new tile
-            if (character.tile != null) { character.tile.Leave(); }
-            character.tile = tuile;
-            tuile.SetFoot(ref character);
-            //new pos = milieux de la tile
-            new_spot = closest_tile.transform.position + (new Vector3(0, 2, 0));
+            Character character = target.GetComponent<Character>();
+            Vector3 new_spot = (has_original_pos) ? original_pos : character.transform.position;
+            has_original_pos = false;
+            if (tuile.Is_available())
+            {
+                //quit old tile to new tile
+                if (character.tile != null) { character.tile.Leave(); }
+                character.tile = tuile;
+                tuile.SetFoot(ref character);
+                //new pos = milieux de la tile
+                new_spot = closest_tile.transform.position + (new Vector3(0, 2, 0));
+            }
+            target.transform.position = new_spot;
         }
-        target.transform.position = new_spot;
+        else if (target.GetComponent<Tile>() != null)
+        {
+            Tile Tile_to_add = target.GetComponent<Tile>();
+            Tile_to_add.transform.position = closest_tile.GetComponent<Transform>().position;
+            Tile_to_add.is_placed = true;
+            Destroy(closest_tile);
+        }
     }
 
     GameObject Get_clicked_object(out RaycastHit hit)
@@ -78,8 +88,19 @@ public class Drag_And_Drop : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray.origin, ray.direction, out hit))
         {
-            if(hit.collider.gameObject.tag == "Mage")
-                _target = hit.collider.gameObject;
+            GameObject obj = hit.collider.gameObject;
+            Tile tile = obj.GetComponentInParent<Tile>();
+            if (obj.tag == "Mage" || (tile != null && tile.is_placed == false))
+            {
+                if (tile != null)
+                {
+                    _target = tile.gameObject;
+                }else
+                {
+                    _target = obj;
+
+                }
+            }
         }
 
         return _target;
