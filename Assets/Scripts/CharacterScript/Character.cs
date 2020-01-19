@@ -176,4 +176,28 @@ public abstract class Character : MonoBehaviour
             Game.Instance.Get_other_player(team).player_health--;
         }
     }
+
+    public string textify()
+    {
+        string text = "";
+        text += textify_line("Attack Damage", att_damage);
+        text += textify_line("Attack Speed", att_speed);
+        text += textify_line("Health", health);
+        text += textify_line("Mana", mana);
+        text += textify_line("Energy", energy);
+        text += textify_line("Critical Chances", crit_chance);
+        text += textify_line("Lifesteal", lifesteal);
+        return text;
+
+    }
+
+    public Sprite get_sprite()
+    {
+        return GetComponentInChildren<SpriteRenderer>().sprite;
+    }
+
+    private string textify_line(string name, Stat stat)
+    {
+        return name + " : " + stat.basic + " (" + stat.bonus() + ")\n";
+    }
 }

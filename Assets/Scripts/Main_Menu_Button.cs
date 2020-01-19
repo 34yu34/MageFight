@@ -17,6 +17,7 @@ public class Main_Menu_Button : MonoBehaviour
 
     void Play()
     {
+        Game.Instance.state = Game.State.Buying;
         SceneManager.LoadScene("GameBoard");
     }
 
