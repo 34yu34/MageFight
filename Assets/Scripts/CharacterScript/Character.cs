@@ -130,7 +130,12 @@ public abstract class Character : MonoBehaviour
 
     float Calculate_damage()
     {
-        return (Random.Range(0.0f, 1.0f) < crit_chance.curr) ? (int)((float)att_damage.curr * crit_damage_mult.curr) : att_damage.curr;
+        bool has_crit = (Random.Range(0.0f, 1.0f) < crit_chance.curr);
+        if (has_crit)
+        {
+            //TODO: crit display
+        }
+        return has_crit ? (int)((float)att_damage.curr * crit_damage_mult.curr) : att_damage.curr;
     }
 
     // Update is called once per frame
