@@ -23,15 +23,19 @@ public class Water_Mage : Character
     }
     public override void Launch_ability()
     {
-        Character lowest = owner.characters[0]; 
+        Character lowest = null;
+        float health = 30000000.0f; // this is use to make sure they are alive
         foreach (Character chr in owner.characters)
         {
-            if (chr.Is_alive() && chr.health.curr < lowest.health.curr)
+            if (chr.Is_alive() && chr.health.curr < health)
             {
                 lowest = chr;
+                health = chr.health.curr;
             }
         }
-        lowest.heal(att_damage.curr * heal_multiplier);
-
+        if (lowest != null)
+        {
+            lowest.heal(att_damage.curr * heal_multiplier);
+        }
     }
 }

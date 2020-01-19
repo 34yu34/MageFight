@@ -43,7 +43,10 @@ public class Projectile : MonoBehaviour
                 if (!has_att)
                 {
                     target.Take_damage(damage);
-                    sender.heal(damage * sender.lifesteal.curr);
+                    if (sender.Is_alive() && sender.lifesteal.curr > 0)
+                    {
+                        sender.heal(damage * sender.lifesteal.curr);
+                    }
                     Destroy(gameObject);
                     has_att = true;
                 }
