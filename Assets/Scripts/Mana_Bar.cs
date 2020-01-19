@@ -15,7 +15,7 @@ public class Mana_Bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        localScale.y = GetComponentInParent<Character>().mana.curr / 100;
+        localScale.y = 2 * GetComponentInParent<Character>().mana.curr / GetComponentInParent<Character>().mana.basic;
         transform.localScale = localScale;
     }
 }

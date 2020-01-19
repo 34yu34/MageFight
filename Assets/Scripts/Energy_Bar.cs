@@ -15,7 +15,7 @@ public class Energy_Bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        localScale.y = GetComponentInParent<Character>().energy.curr / 1000;
+        localScale.y = 2 * GetComponentInParent<Character>().energy.curr / GetComponentInParent<Character>().energy.basic;
         transform.localScale = localScale;
     }
 }

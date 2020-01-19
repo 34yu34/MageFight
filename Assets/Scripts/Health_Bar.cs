@@ -15,7 +15,7 @@ public class Health_Bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        localScale.y = GetComponentInParent<Character>().health.curr / 1000;
+        localScale.y = 2 * GetComponentInParent<Character>().health.curr / GetComponentInParent<Character>().health.basic;
         transform.localScale = localScale;
     }
 }
