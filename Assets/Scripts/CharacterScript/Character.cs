@@ -191,7 +191,6 @@ public abstract class Character : MonoBehaviour
         {
             Game.Instance.state = Game.State.Reset;
             Game.Instance.Get_other_player(owner).Loser();
-            owner.Winner();
         }
     }
 

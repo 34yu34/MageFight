@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 
 public class Game : MonoBehaviour
@@ -111,5 +112,19 @@ public class Game : MonoBehaviour
     public List<Player> Get_players()
     {
         return new List<Player>{ player1, player2 };
+    }
+
+    public void End()
+    {
+        if (Global_Vars.loser == "player1")
+        {
+            Global_Vars.loser = null;
+            SceneManager.LoadScene("LossScene");
+        }
+        else if (Global_Vars.loser == "player2")
+        {
+            Global_Vars.loser = null;
+            SceneManager.LoadScene("WinScene");
+        }
     }
 }

@@ -48,6 +48,7 @@ public class Buy_Menu : MonoBehaviour
             }
             indexes.Add(index);
             b.GetComponentInChildren<Text>().text = terrains[index].name;
+            b.GetComponentsInChildren<Image>()[1].sprite = terrains[index].GetComponent<Tile>().get_sprite();
             b.GetComponentsInChildren<Text>()[1].text = (terrains[index].GetComponent<Tile>().price()).ToString();
             b.onClick.AddListener(delegate { On_Buy_Terrain(index); });
         }
