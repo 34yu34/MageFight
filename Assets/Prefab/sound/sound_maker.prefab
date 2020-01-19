@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -9104379262900426960}
   - component: {fileID: 8282074721937117702}
   m_Layer: 0
-  m_Name: death_sound
+  m_Name: sound_maker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +50,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c9800a7aa4db16e45a22247ad0e6d83c, type: 3}
   - {fileID: 8300000, guid: dd7ade4feabdf8f4c839de507a627a79, type: 3}
   - {fileID: 8300000, guid: f2c06610d326e494c89c1e0d211d9552, type: 3}
+  critical_sound:
+  - {fileID: 8300000, guid: 4f683358b51735049b61e31a738face1, type: 3}
+  - {fileID: 8300000, guid: b0ce4eaabe7e66d4695e679c1155ed7e, type: 3}
+  - {fileID: 8300000, guid: d1ad65638b39ca644ade0b4ca21ae25c, type: 3}
 --- !u!82 &8282074721937117702
 AudioSource:
   m_ObjectHideFlags: 0
@@ -61,14 +65,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

@@ -78,6 +78,11 @@ public class Stat
         return this;
     }
 
+    public void reset_curr()
+    {
+        calc_actual();
+    }
+
     public float Actual()
     {
         return actual;

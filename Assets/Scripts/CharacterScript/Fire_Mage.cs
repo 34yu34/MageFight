@@ -24,6 +24,7 @@ public class Fire_Mage : Character
 
     public override void Launch_ability()
     {
+        //target.receive_attack_fire();
         List<Character> ennemies = Game.Instance.Get_other_player(owner).characters;
 
         foreach(Character bob in ennemies)
@@ -31,6 +32,7 @@ public class Fire_Mage : Character
             if ((target.transform.position - bob.transform.position).sqrMagnitude < 81.0f)
             {
                 bob.Take_damage(att_damage.curr * DAMAGE_MULT);
+                bob.receive_attack_fire();
             }
         }
     }

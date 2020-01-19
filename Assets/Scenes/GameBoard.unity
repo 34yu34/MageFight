@@ -5900,6 +5900,7 @@ GameObject:
   - component: {fileID: 1835812779}
   - component: {fileID: 1835812781}
   - component: {fileID: 1835812782}
+  - component: {fileID: 1835812783}
   m_Layer: 0
   m_Name: Global
   m_TagString: Global
@@ -6034,6 +6035,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8017ecd01cb754547ac01e4e08714e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1835812783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835812774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41091a4d8e5d9114c8c4ce5e00e072bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrades:
+  - stat: 0
+    val: 1
+    is_raw: 0
+  - stat: 1
+    val: -0.2
+    is_raw: 0
+  - stat: 2
+    val: 1
+    is_raw: 0
+  - stat: 3
+    val: 0.6
+    is_raw: 0
+  - stat: 4
+    val: 0.2
+    is_raw: 1
+  - stat: 5
+    val: 1
+    is_raw: 1
+  - stat: 6
+    val: 0.35
+    is_raw: 1
 --- !u!1001 &1858266501
 PrefabInstance:
   m_ObjectHideFlags: 0

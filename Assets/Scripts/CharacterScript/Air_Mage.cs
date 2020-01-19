@@ -6,6 +6,7 @@ public class Air_Mage : Character
 {
     public float att_speed_mult = 0.1f;
     private int number_buff = 0;
+
     Air_Mage()
     {
     }
@@ -26,6 +27,7 @@ public class Air_Mage : Character
     {
         att_speed.Add_mult(0.1f);
         number_buff++;
+        receive_attack_wind();
     }
 
     public override void Reset_round()

@@ -6,6 +6,8 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
+    public GameObject ability_anim;
+
     public Player owner;
     public Timer timer = null;
     public Character target = null;
@@ -23,6 +25,7 @@ public abstract class Character : MonoBehaviour
     public Stat crit_damage_mult;
     public Stat lifesteal;
     public static int COST = 2;
+    public bool has_upgraded;
 
     public float[] debuff;
     public float[] energy_treshold;
@@ -46,7 +49,16 @@ public abstract class Character : MonoBehaviour
         debuff = new float[3] { -0.2f, -0.3f, -0.4f };
         energy_treshold = new float[3] { 0.5f, 0.35f, 0.2f };
         gameObject.tag = "Mage";
-        
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[0].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[1].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[2].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[3].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[4].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[5].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[6].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[7].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[8].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[9].enabled = false;
     }
 
     public virtual void Reset_round()
@@ -72,6 +84,10 @@ public abstract class Character : MonoBehaviour
         {
             Apply_permanent_debuff(debuff[0]);
         }
+        else if (energy.curr > energy.basic)
+        {
+            energy.curr = energy.basic;
+        }
     }
 
     private void Apply_permanent_debuff(float debuff)
@@ -87,7 +103,7 @@ public abstract class Character : MonoBehaviour
 
     public void Take_damage(float dmg)
     {
-        if(!Is_alive())
+        if (!Is_alive())
         {
             return;
         }
@@ -96,15 +112,16 @@ public abstract class Character : MonoBehaviour
         Damage_Popup_Controler.Instance.CreateFloatingText(Mathf.Floor(dmg).ToString(), transform);
 
         health.curr -= dmg;
-        if(health.curr <= 0)
+        if (health.curr <= 0)
         {
             health.curr = 0;
             //play death sound
-            GameObject sound_maker = GameObject.Find("death_sound");
+            GameObject sound_maker = GameObject.Find("sound_maker");
             if(sound_maker)
             {
                 sound_maker.GetComponent<Sound>().Die();
             }
+
             gameObject.SetActive(false);
         }
     }
@@ -133,7 +150,16 @@ public abstract class Character : MonoBehaviour
         bool has_crit = (Random.Range(0.0f, 1.0f) < crit_chance.curr);
         if (has_crit)
         {
-            //TODO: crit display
+            Crit_Popup_Controller.Instance.Initialize();
+            Crit_Popup_Controller.Instance.CreateFloatingText(transform);
+            
+            //play critical sound
+            GameObject sound_maker = GameObject.Find("sound_maker");
+            if (sound_maker)
+            {
+                sound_maker.GetComponent<Sound>().Do_critical();
+            }
+
         }
         return has_crit ? (int)((float)att_damage.curr * crit_damage_mult.curr) : att_damage.curr;
     }
@@ -172,6 +198,7 @@ public abstract class Character : MonoBehaviour
             {
                 Launch_ability();
                 mana.curr = mana.curr - mana.Actual() ;
+
             }
 
             Invoke("Launch_attack", (1.0f / att_speed.curr));
@@ -182,7 +209,9 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    public abstract void Launch_ability();
+    public virtual void Launch_ability()
+    {
+    }
 
     public void Find_target()
     {
@@ -190,7 +219,7 @@ public abstract class Character : MonoBehaviour
         float distance = 3000000.0f;
 
 
-        for(int i = 0; i < ennemies.Count; ++i)
+        for (int i = 0; i < ennemies.Count; ++i)
         {
             float new_distance = (ennemies[i].GetComponent<Transform>().position - GetComponent<Transform>().position).sqrMagnitude;
             if (new_distance < distance && ennemies[i].Is_alive() && ennemies[i].Is_on_board())
@@ -237,26 +266,158 @@ public abstract class Character : MonoBehaviour
         {
             case Character_Handler.Chr_Mod_Stat.HEALTH:
                 return health;
-                break;
             case Character_Handler.Chr_Mod_Stat.MANA:
                 return mana;
-                break;
             case Character_Handler.Chr_Mod_Stat.ATT_DAMAGE:
                 return att_damage;
-                break;
             case Character_Handler.Chr_Mod_Stat.ATT_SPEED:
                 return att_speed;
-                break;
             case Character_Handler.Chr_Mod_Stat.CRIT:
                 return crit_chance;
-                break;
             case Character_Handler.Chr_Mod_Stat.CRIT_DMG:
                 return crit_damage_mult;
-                break;
             case Character_Handler.Chr_Mod_Stat.LIFESTEAL:
                 return lifesteal;
-                break;
         }
         return null;
+    }
+
+    /*/////////////////////////FIRE/////////////////////////////*/
+    public void receive_attack_fire()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[0].enabled = true;
+        Invoke("attack_fire_frame2", (0.2f));
+        Invoke("attack_fire_frame3", (0.4f));
+        Invoke("attack_fire_frame2", (0.6f));
+        Invoke("attack_fire_end", (0.8f));
+    }
+
+    public void attack_fire_frame2()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[0].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[1].enabled = true;
+    }
+
+    public void attack_fire_frame3()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[1].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[0].enabled = true;
+    }
+
+    public void attack_fire_end()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[1].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[0].enabled = false;
+    }
+
+    /*/////////////////////////DARK/////////////////////////////*/
+    public void receive_attack_dark()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[2].enabled = true;
+        Invoke("attack_dark_frame2", (0.2f));
+        Invoke("attack_dark_frame3", (0.4f));
+        Invoke("attack_dark_frame2", (0.6f));
+        Invoke("attack_dark_end", (0.8f));
+    }
+
+    public void attack_dark_frame2()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[2].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[3].enabled = true;
+    }
+
+    public void attack_dark_frame3()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[3].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[2].enabled = true;
+    }
+
+    public void attack_dark_end()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[3].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[2].enabled = false;
+    }
+
+    /*/////////////////////////WIND/////////////////////////////*/
+    public void receive_attack_wind()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[4].enabled = true;
+        Invoke("attack_wind_frame2", (0.2f));
+        Invoke("attack_wind_frame3", (0.4f));
+        Invoke("attack_wind_frame2", (0.6f));
+        Invoke("attack_wind_end", (0.8f));
+    }
+    public void attack_wind_frame2()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[4].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[5].enabled = true;
+    }
+
+    public void attack_wind_frame3()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[5].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[4].enabled = true;
+    }
+
+    public void attack_wind_end()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[5].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[4].enabled = false;
+    }
+
+    /*/////////////////////////WATER/////////////////////////////*/
+    public void receive_attack_water()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[6].enabled = true;
+        Invoke("attack_water_frame2", (0.2f));
+        Invoke("attack_water_frame3", (0.4f));
+        Invoke("attack_water_frame2", (0.6f));
+        Invoke("attack_water_end", (0.8f));
+    }
+
+    public void attack_water_frame2()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[6].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[7].enabled = true;
+    }
+
+    public void attack_water_frame3()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[7].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[6].enabled = true;
+    }
+
+    public void attack_water_end()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[7].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[6].enabled = false;
+    }
+
+    /*/////////////////////////EARTH/////////////////////////////*/
+    public void receive_attack_earth()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[8].enabled = true;
+        Invoke("attack_earth_frame2", (0.2f));
+        Invoke("attack_earth_frame3", (0.4f));
+        Invoke("attack_earth_frame2", (0.6f));
+        Invoke("attack_earth_end", (0.8f));
+    }
+
+    public void attack_earth_frame2()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[8].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[9].enabled = true;
+    }
+
+    public void attack_earth_frame3()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[9].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[8].enabled = true;
+    }
+
+    public void attack_earth_end()
+    {
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[9].enabled = false;
+        ability_anim.GetComponentsInChildren<SpriteRenderer>()[8].enabled = false;
     }
 }

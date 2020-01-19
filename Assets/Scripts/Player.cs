@@ -9,11 +9,13 @@ public class Player : MonoBehaviour
     public List<Character> characters;
     public uint health;
     public int gold;
+    public int terrainNum;
 
     // Start is called before the first frame update
     void Start()
     {
         gold = 4;
+        terrainNum = 0;
         health = Global_Vars.health_setting;
     }
 

@@ -30,12 +30,11 @@ public class Selection_Handler : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
+        if (Input.GetMouseButtonDown(0))
+        {
             RaycastHit hit_info;
             Get_clicked_object(out hit_info);
-
-        //}
+        }
     }
 
     public void set_selection(GameObject obj)

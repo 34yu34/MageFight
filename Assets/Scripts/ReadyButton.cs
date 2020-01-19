@@ -20,7 +20,14 @@ public class ReadyButton : MonoBehaviour
         }
         else if (Game.Instance.state == Game.State.Buying)
         {
-            Game.Instance.state = Game.State.Terrain;
+            if (Game.Instance.player1.terrainNum > 0)
+            {
+                Game.Instance.state = Game.State.Terrain;
+            }
+            else
+            {
+                Game.Instance.state = Game.State.Planning;
+            }
         }
         else if (Game.Instance.state == Game.State.Terrain)
         {

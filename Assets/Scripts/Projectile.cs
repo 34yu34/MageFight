@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
+        if (target != null && target.Is_alive())
         {
             if (time > 0)
             {
@@ -52,8 +52,7 @@ public class Projectile : MonoBehaviour
                 }
             }
         }
-
-        if (!target.Is_alive())
+        else
         {
             Destroy(gameObject);
         }

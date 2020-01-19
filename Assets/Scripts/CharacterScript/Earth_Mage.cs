@@ -27,6 +27,7 @@ public class Earth_Mage: Character
     {
         target.att_damage.Add_mult(-Damage_debuff_mult);
         debuff_chars.Add(target);
+        target.receive_attack_earth();
     }
 
     public override void Reset_round()

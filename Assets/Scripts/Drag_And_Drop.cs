@@ -79,6 +79,7 @@ public class Drag_And_Drop : MonoBehaviour
                 Tile_to_add.transform.position = closest_tile.GetComponent<Transform>().position;
                 Tile_to_add.is_placed = true;
                 Destroy(closest_tile);
+                Game.Instance.player1.terrainNum--;
             }
             else
             {

@@ -33,9 +33,11 @@ public class Water_Mage : Character
                 health = chr.health.curr;
             }
         }
+        
         if (lowest != null)
         {
             lowest.heal(att_damage.curr * heal_multiplier);
+            lowest.receive_attack_water();
         }
     }
 }

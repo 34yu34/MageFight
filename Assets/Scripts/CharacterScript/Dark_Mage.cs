@@ -26,5 +26,6 @@ public class Dark_Mage : Character
     {
         target.Take_damage(att_damage.curr * damage_mult);
         heal(att_damage.curr * damage_mult);
+        target.receive_attack_dark();
     }
 }

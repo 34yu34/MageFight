@@ -39,7 +39,7 @@ public class Health_Settings : MonoBehaviour
 
     void Dec_health()
     {
-        if (Global_Vars.health_setting > 0)
+        if (Global_Vars.health_setting > 1)
         {
             health.GetComponent<Text>().text = (--Global_Vars.health_setting).ToString();
         }

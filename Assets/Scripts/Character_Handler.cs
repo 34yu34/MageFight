@@ -46,4 +46,37 @@ public class Character_Handler : MonoBehaviour
     {
         return Instantiate(mages[Random.Range(0, mages.Count)]).GetComponent<Character>();
     }
+
+    public string get_stat_name(Chr_Mod_Stat stat)
+    {
+        if (stat == Chr_Mod_Stat.HEALTH)
+        {
+            return "Health";
+        }
+        if (stat == Chr_Mod_Stat.MANA)
+        {
+            return "Mana Cost";
+        }
+        if (stat == Chr_Mod_Stat.ATT_DAMAGE)
+        {
+            return "Attack Damage";
+        }
+        if (stat == Chr_Mod_Stat.ATT_SPEED)
+        {
+            return "Attack Speed";
+        }
+        if (stat == Chr_Mod_Stat.CRIT)
+        {
+            return "Critical Chances";
+        }
+        if (stat == Chr_Mod_Stat.CRIT_DMG)
+        {
+            return "Critical Damages";
+        }
+        if (stat == Chr_Mod_Stat.LIFESTEAL)
+        {
+            return "Lifesteal";
+        }
+        return "";
+    }
 }
