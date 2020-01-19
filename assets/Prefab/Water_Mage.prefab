@@ -627,6 +627,9 @@ MonoBehaviour:
   mana:
     basic: 0
     curr: 0
+  mana_on_attack:
+    basic: 0
+    curr: 0
   energy:
     basic: 0
     curr: 0
@@ -727,6 +730,9 @@ MonoBehaviour:
     curr: 0
   mana:
     basic: 80
+    curr: 0
+  mana_on_attack:
+    basic: 10
     curr: 0
   energy:
     basic: 1000

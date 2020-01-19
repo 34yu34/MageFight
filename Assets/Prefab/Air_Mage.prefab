@@ -602,6 +602,9 @@ MonoBehaviour:
   mana:
     basic: 50
     curr: 0
+  mana_on_attack:
+    basic: 10
+    curr: 0
   energy:
     basic: 1000
     curr: 0
@@ -625,6 +628,7 @@ MonoBehaviour:
     curr: 0
   debuff: []
   energy_treshold: []
+  att_speed_mult: 0.1
 --- !u!82 &2360131984955862358
 AudioSource:
   m_ObjectHideFlags: 0

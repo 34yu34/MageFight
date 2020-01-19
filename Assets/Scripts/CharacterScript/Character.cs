@@ -154,7 +154,7 @@ public abstract class Character : MonoBehaviour
         if (target != null && this.Is_alive() && target.Is_alive())
         {
             Instantiate(projectile, GetComponent<Transform>().position, GetComponent<Transform>().rotation).GetComponent<Projectile>().set_target(target, Calculate_damage(), this);
-            mana.curr += mana_on_attack.Actual();
+            mana.curr += mana_on_attack.curr;
             GetComponent<AudioSource>().Play();
             if (mana.curr >= mana.Actual())
             {
