@@ -38,6 +38,10 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown("escape"))
+        {
+
+        }
         if(state == State.Reset)
         {
             frameCount++;
@@ -163,12 +167,12 @@ public class Game : MonoBehaviour
 
     public void End()
     {
-        if (Global_Vars.loser == "player1")
+        if (Global_Vars.loser == "Player1")
         {
             Global_Vars.loser = null;
             SceneManager.LoadScene("LossScene");
         }
-        else if (Global_Vars.loser == "player2")
+        else if (Global_Vars.loser == "Player2")
         {
             Global_Vars.loser = null;
             SceneManager.LoadScene("WinScene");
