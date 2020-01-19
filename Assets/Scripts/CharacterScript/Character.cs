@@ -197,6 +197,7 @@ public abstract class Character : MonoBehaviour
     public string textify()
     {
         string text = "";
+        text += (string.Join(" ", (name.Split('(')[0]).Split('_')) + '\n');
         text += textify_line("Attack Damage", att_damage);
         text += textify_line("Attack Speed", att_speed);
         text += textify_line("Health", health);
