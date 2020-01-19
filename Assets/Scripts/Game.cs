@@ -50,6 +50,53 @@ public class Game : MonoBehaviour
                 GetComponentInChildren<Buy_Menu>().round_reset();
             }
         }
+        else if (state == State.Fighting)
+        {
+            int pl1 = 0;
+            foreach (Character bob in player1.characters)
+            {
+                 if (bob.Is_alive() && bob.Is_on_board())
+                {
+                    pl1++;
+                }
+            }
+
+            int pl2 = 0;
+            foreach (Character bob in player2.characters)
+            {
+                if (bob.Is_alive() && bob.Is_on_board())
+                {
+                    pl2++;
+                }
+            }
+
+            if (pl1 > 0 && pl2 == 0)
+            {
+                End_fighting(player1);
+            }
+            else if ( pl1 == 0 && pl2 > 0)
+            {
+                End_fighting(player2);
+            }
+            else if ( pl1 == 0 && pl2 == 0)
+            {
+                End_fighting(null);
+            }
+        }
+    }
+    private void End_fighting(Player pl)
+    {
+        state = Game.State.Reset;
+        if(pl == null)
+        {
+            player1.Winner();
+            player2.Winner();
+        }
+        else
+        {
+            Game.Instance.Get_other_player(pl).Loser();
+            pl.Winner();
+        }
     }
 
     public static Game Instance
