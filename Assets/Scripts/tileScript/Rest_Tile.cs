@@ -7,11 +7,11 @@ public class Rest_Tile : Tile
     // Start is called before the first frame update
     public override void add_passive(ref Character occupant)
     {
-        occupant.energy_remover.Add_mult(-1.0f);
+        occupant.energy_remover.Add_mult(-2.0f);
     }
 
     public override void remove_passive()
     {
-        occupant.energy_remover.Remove_mult(-1.0f);
+        occupant.energy_remover.Remove_mult(-2.0f);
     }
 }
