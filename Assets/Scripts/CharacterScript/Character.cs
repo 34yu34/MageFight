@@ -23,10 +23,10 @@ public abstract class Character : MonoBehaviour
     public Stat crit_chance;
     public Stat crit_damage_mult;
     public Stat lifesteal;
-
     public static int COST = 2;
-    public float debuf;
-    public float energy_treshold;
+
+    public float[] debuff;
+    public float[] energy_treshold;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -40,8 +40,8 @@ public abstract class Character : MonoBehaviour
         crit_chance = new Stat(crit_chance.basic);
         crit_damage_mult = new Stat(crit_damage_mult.basic);
         lifesteal = new Stat(lifesteal.basic);
-        debuf = 0.3f;
-        energy_treshold = 0.5f;
+        debuff = new float[3] { -0.2f, -0.3f, -0.4f };
+        energy_treshold = new float[3] { 0.5f, 0.35f, 0.2f };
         gameObject.tag = "Mage";
     }
 
@@ -57,16 +57,51 @@ public abstract class Character : MonoBehaviour
     {
         energy.curr -= energy_remover.curr;
         target = null;
-        if(energy.curr <= energy.basic*energy_treshold)
+        if (energy.curr <= energy.basic * energy_treshold[2])
+<<<<<<< Updated upstream
         {
-            //apply permanent debuf
-            health.Remove_mult(debuf);
-            mana.Remove_mult(debuf);
-            att_damage.Remove_mult(debuf);
-            att_speed.Remove_mult(debuf);
-            crit_chance.Remove_mult(debuf);
-            crit_damage_mult.Remove_mult(debuf);
+            Apply_permanent_debuff(debuff[2]);
         }
+        else if (energy.curr <= energy.basic * energy_treshold[1])
+        {
+            Apply_permanent_debuff(debuff[1]);
+        }
+        else if (energy.curr <= energy.basic * energy_treshold[0])
+        {
+            Apply_permanent_debuff(debuff[0]);
+=======
+        {
+            Apply_permanent_debuff(debuff[2]);
+>>>>>>> Stashed changes
+        }
+        else if (energy.curr <= energy.basic * energy_treshold[1])
+        {
+            Apply_permanent_debuff(debuff[1]);
+        }
+        else if (energy.curr <= energy.basic * energy_treshold[0])
+        {
+            Apply_permanent_debuff(debuff[0]);
+        }
+    }
+
+    private void Apply_permanent_debuff(float debuff)
+    {
+        health.Add_mult(debuff);
+        mana.Add_mult(debuff);
+        att_damage.Add_mult(debuff);
+        att_speed.Add_mult(debuff);
+        crit_chance.Add_mult(debuff);
+        crit_damage_mult.Add_mult(debuff);
+    }
+
+    private void Apply_permanent_debuff(float debuff)
+    {
+        health.Add_mult(debuff);
+        mana.Add_mult(debuff);
+        att_damage.Add_mult(debuff);
+        att_speed.Add_mult(debuff);
+        crit_chance.Add_mult(debuff);
+        crit_damage_mult.Add_mult(debuff);
     }
 
     public void Take_damage(float dmg)
