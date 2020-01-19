@@ -111,7 +111,7 @@ public class Drag_And_Drop : MonoBehaviour
         return _target;
     }
 
-    GameObject Find_closest_tile(Vector3 position)
+    public static GameObject Find_closest_tile(Vector3 position)
     {
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("Tile");
