@@ -109,12 +109,14 @@ public class Basic_AI : MonoBehaviour
             reroll_strat();
             return true;
         }
+        Destroy(tile.gameObject);
         return false;
     }
 
     public virtual void reroll_strat()
     {
-       strategy = Random.Range(0, 3) > 2 ? Strategy.Tile : Strategy.Character;
+        strategy = Random.Range(0, 4) > 2 ? Strategy.Tile : Strategy.Character;
+        Buy();
     }
 
     public virtual void Move_Ground()
@@ -129,13 +131,16 @@ public class Basic_AI : MonoBehaviour
             {
                 for(int i = 0; i < own_tiles.Count; ++i)
                 {
-                    if (own_tiles[i].GetComponents<Normal_Tile>() != null)
+                    if (own_tiles[i].GetComponent<Normal_Tile>() != null)
                     {
                         place_tile(i);
                         break;
                     }
                 }
             }
+
+            tile_to_place = null;
+
         }
     }
 
