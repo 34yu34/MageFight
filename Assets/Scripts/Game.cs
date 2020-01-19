@@ -66,11 +66,13 @@ public class Game : MonoBehaviour
         foreach (Character character in player1.characters)
         {
             character.Reset_round();
+            gameObject.SetActive(true);
             Snap_to_base(character);
         }
         foreach (Character character in player2.characters)
         {
             character.Reset_round();
+            gameObject.SetActive(true);
         }
     }
 

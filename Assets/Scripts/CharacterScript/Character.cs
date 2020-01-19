@@ -94,6 +94,10 @@ public abstract class Character : MonoBehaviour
 
     public bool Is_alive()
     {
+        if(health.curr <= 0)
+        {
+            gameObject.SetActive(false);
+        }
         return (health.curr > 0);
     }
 
