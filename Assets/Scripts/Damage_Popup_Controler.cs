@@ -37,6 +37,6 @@ public class Damage_Popup_Controler : MonoBehaviour
         instance.transform.SetParent(canvas.transform, false);
         instance.transform.position = screenPos + (new Vector2(0,50));
         instance.GetComponentInChildren<Text>().text = text;
-        Destroy(instance, 0.65f);
+        Destroy(instance, 0.55f);
     }
 }
