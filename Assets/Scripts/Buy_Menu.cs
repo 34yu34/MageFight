@@ -107,7 +107,8 @@ public class Buy_Menu : MonoBehaviour
         {
             bool has_selection = Selection_Handler.Instance.get_selection() != null &&
                                  Selection_Handler.Instance.get_selection().GetComponent<Character>() != null &&
-                                 !Selection_Handler.Instance.get_selection().GetComponent<Character>().has_upgraded;
+                                 !Selection_Handler.Instance.get_selection().GetComponent<Character>().has_upgraded &&
+                                 Game.Instance.player1.gold >= System.Int32.Parse(b.GetComponentsInChildren<Text>()[1].text);
             if (!has_selection)
             {
                 b.GetComponent<Image>().color = Color.grey;
