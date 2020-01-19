@@ -103,6 +103,7 @@ public abstract class Character : MonoBehaviour
             {
                 sound_maker.GetComponent<Sound>().Die();
             }
+            gameObject.SetActive(false);
         }
     }
 
@@ -114,10 +115,6 @@ public abstract class Character : MonoBehaviour
 
     public bool Is_alive()
     {
-        if(health.curr <= 0)
-        {
-            gameObject.SetActive(false);
-        }
         return (health.curr > 0);
     }
 
@@ -191,12 +188,6 @@ public abstract class Character : MonoBehaviour
                 target = ennemies[i];
                 distance = new_distance;
             }
-        }
-        if(target == null)
-        {
-            Game.Instance.state = Game.State.Reset;
-            Game.Instance.Get_other_player(owner).Loser();
-            owner.Winner();
         }
     }
 

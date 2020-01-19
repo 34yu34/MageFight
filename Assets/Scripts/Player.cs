@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         gold = 4;
-        health = Game.Instance.health_settings;
+        health = Global_Vars.health_setting;
     }
 
     public void Winner()
@@ -29,7 +29,8 @@ public class Player : MonoBehaviour
         if(health == 0)
         {
             //show loss for self and win for other
-            SceneManager.LoadScene("MainMenu");
+            Global_Vars.loser = gameObject.GetComponent<Player>().name;
+            Game.Instance.End();
         }
     }
 

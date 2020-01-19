@@ -106,21 +106,25 @@ public class Basic_AI : MonoBehaviour
         {
             player.gold -= tile.price();
             tile_to_place = tile;
+            tile.gameObject.SetActive(false);
             reroll_strat();
             return true;
         }
+        Destroy(tile.gameObject);
         return false;
     }
 
     public virtual void reroll_strat()
     {
-       strategy = Random.Range(0, 3) > 2 ? Strategy.Tile : Strategy.Character;
+        strategy = Random.Range(0, 4) > 2 ? Strategy.Tile : Strategy.Character;
+        Buy();
     }
 
     public virtual void Move_Ground()
     {
         if (tile_to_place != null)
         {
+            tile_to_place.gameObject.SetActive(true);
             if (own_tiles.Count > 11)
             {
                 place_tile(Random.Range(0, own_tiles.Count - 1));
@@ -129,13 +133,16 @@ public class Basic_AI : MonoBehaviour
             {
                 for(int i = 0; i < own_tiles.Count; ++i)
                 {
-                    if (own_tiles[i].GetComponents<Normal_Tile>() != null)
+                    if (own_tiles[i].GetComponent<Normal_Tile>() != null)
                     {
                         place_tile(i);
                         break;
                     }
                 }
             }
+
+            tile_to_place = null;
+
         }
     }
 
@@ -144,7 +151,7 @@ public class Basic_AI : MonoBehaviour
         tile_to_place.transform.position = own_tiles[index].transform.position;
         tile_to_place.transform.rotation = own_tiles[index].transform.rotation;
         tile_to_place.is_placed = true;
-        Destroy(own_tiles[index]);
+        Destroy(own_tiles[index].gameObject);
         own_tiles[index] = tile_to_place;
     }
 
@@ -160,9 +167,13 @@ public class Basic_AI : MonoBehaviour
                     if (own_tiles[j].GetComponents<Normal_Tile>() == null)
                     {
                         Tile tile = own_tiles[j];
-                        pl.transform.position = tile.transform.position + (new Vector3(0, 2, 0));
-                        tile.Occupy(ref pl);
-                        playing_char.Add(pl);
+                        if(tile.Is_available())
+                        {
+                            pl.transform.position = tile.transform.position + (new Vector3(0, 2, 0));
+                            tile.Occupy(ref pl);
+                            playing_char.Add(pl);
+                            break;
+                        }
                     }
                 }
 
@@ -174,12 +185,13 @@ public class Basic_AI : MonoBehaviour
                         pl.transform.position = tile.transform.position + (new Vector3(0, 2, 0));
                         tile.Occupy(ref pl);
                         playing_char.Add(pl);
+                        break;
                     }
                 }
             }
             else
             {
-                pl.energy.curr += pl.energy_remover.curr;
+                pl.energy.curr += 2*pl.energy_remover.curr;
             }
         }
     }
@@ -196,7 +208,14 @@ public class Basic_AI : MonoBehaviour
     {
         foreach(Character bob in player.characters)
         {
-            bob.tile = null;
+            if (bob.tile != null)
+            {
+                bob.tile.remove_passive();
+                bob.tile.occupant = null;
+                bob.tile = null;
+
+            }
+
         }
     }
 }

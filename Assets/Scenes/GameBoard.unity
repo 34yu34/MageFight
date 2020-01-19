@@ -752,6 +752,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Tile (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_dropable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_replaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8492978890722616737, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -810,16 +820,6 @@ PrefabInstance:
     - target: {fileID: 6017325236091044499, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_replaceable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1287,6 +1287,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Tile (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_dropable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_replaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8492978890722616737, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1345,16 +1355,6 @@ PrefabInstance:
     - target: {fileID: 6017325236091044499, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_replaceable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1456,6 +1456,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Tile (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_dropable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_replaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8492978890722616737, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1519,16 +1529,6 @@ PrefabInstance:
     - target: {fileID: 6017325236091044499, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_replaceable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1835,6 +1835,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Tile (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_dropable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_replaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8492978890722616737, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1893,16 +1903,6 @@ PrefabInstance:
     - target: {fileID: 6017325236091044499, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_replaceable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2675,13 +2675,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863302258}
-  m_LocalRotation: {x: -0.38219464, y: 0.59491783, z: -0.38219467, w: -0.5949179}
-  m_LocalPosition: {x: 40.4, y: 62, z: -0}
+  m_LocalRotation: {x: -0.29883623, y: 0.64085644, z: -0.29883623, w: -0.64085644}
+  m_LocalPosition: {x: 50, y: 45, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 65.436005, y: 270, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 270, z: 0}
 --- !u!1 &892234433
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,6 +2871,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Tile (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_dropable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_replaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8492978890722616737, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2929,16 +2939,6 @@ PrefabInstance:
     - target: {fileID: 6017325236091044499, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_replaceable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3182,6 +3182,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Tile (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_dropable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_replaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8492978890722616737, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3242,16 +3252,6 @@ PrefabInstance:
       propertyPath: is_dropable
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_replaceable
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b635d357f205b244f92e8bdb36651f8e, type: 3}
 --- !u!4 &997171393 stripped
@@ -3271,6 +3271,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Normal Tile (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_dropable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_replaceable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8492978890722616737, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
@@ -3330,16 +3340,6 @@ PrefabInstance:
     - target: {fileID: 6017325236091044499, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_replaceable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3437,6 +3437,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Tile (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_dropable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_replaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8492978890722616737, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3495,16 +3505,6 @@ PrefabInstance:
     - target: {fileID: 6017325236091044499, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_replaceable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6016,6 +6016,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Tile (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_dropable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_replaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8492978890722616737, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6074,16 +6084,6 @@ PrefabInstance:
     - target: {fileID: 6017325236091044499, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_replaceable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6498,6 +6498,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Tile (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_dropable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_replaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8492978890722616737, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6556,16 +6566,6 @@ PrefabInstance:
     - target: {fileID: 6017325236091044499, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_replaceable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6762,6 +6762,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Tile (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_dropable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
+        type: 3}
+      propertyPath: is_replaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8492978890722616737, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6820,16 +6830,6 @@ PrefabInstance:
     - target: {fileID: 6017325236091044499, guid: b635d357f205b244f92e8bdb36651f8e,
         type: 3}
       propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_dropable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048044763146153416, guid: b635d357f205b244f92e8bdb36651f8e,
-        type: 3}
-      propertyPath: is_replaceable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
