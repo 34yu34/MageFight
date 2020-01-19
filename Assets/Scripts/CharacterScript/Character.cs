@@ -37,7 +37,9 @@ public abstract class Character : MonoBehaviour
         energy = new Stat(energy.basic);
         energy_remover = new Stat(energy_remover.basic);
         att_damage = new Stat(att_damage.basic);
+        att_damage.no_neg = true;
         att_speed = new Stat(att_speed.basic);
+        att_speed.no_neg = true;
         crit_chance = new Stat(crit_chance.basic);
         crit_damage_mult = new Stat(crit_damage_mult.basic);
         lifesteal = new Stat(lifesteal.basic);
@@ -91,7 +93,7 @@ public abstract class Character : MonoBehaviour
         }
 
         Damage_Popup_Controler.Instance.Initialize();
-        Damage_Popup_Controler.Instance.CreateFloatingText(dmg.ToString(), transform);
+        Damage_Popup_Controler.Instance.CreateFloatingText(Mathf.Floor(dmg).ToString(), transform);
 
         health.curr -= dmg;
         if(health.curr <= 0)
@@ -161,7 +163,7 @@ public abstract class Character : MonoBehaviour
             if (mana.curr >= mana.Actual())
             {
                 Launch_ability();
-                mana.curr = 0;
+                mana.curr = mana.curr - mana.Actual() ;
             }
 
             Invoke("Launch_attack", (1.0f / att_speed.curr));

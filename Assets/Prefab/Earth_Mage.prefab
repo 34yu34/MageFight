@@ -103,7 +103,7 @@ MonoBehaviour:
     curr: 0
   debuff: []
   energy_treshold: []
-  Damage_debuff_mult: 0.15
+  Damage_debuff_mult: 0.25
 --- !u!82 &1510917297935114160
 AudioSource:
   m_ObjectHideFlags: 0

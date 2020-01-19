@@ -10,6 +10,8 @@ public class Stat
     private float actual;
     private List<float> _bonus_mult;
     private List<float> _bonus_raw;
+    [System.NonSerialized]
+    public bool no_neg;
 
     public Stat(float basic_val = 0.0f)
     {
@@ -66,7 +68,12 @@ public class Stat
             sum += _bonus_raw[i];
         }
 
-        actual = mult * basic + sum;
+        float new_actual = mult * basic + sum;
+        if (no_neg)
+        {
+            new_actual = new_actual > 0.1f * basic ? new_actual : 0.1f * basic; 
+        }
+        actual = new_actual;
         curr = current_over_actual * actual;
         return this;
     }
