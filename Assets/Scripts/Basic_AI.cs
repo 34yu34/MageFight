@@ -184,7 +184,7 @@ public class Basic_AI : MonoBehaviour
             }
             else
             {
-                pl.energy.curr += pl.energy_remover.curr;
+                pl.energy.curr += 2*pl.energy_remover.curr;
             }
         }
     }
