@@ -24,6 +24,7 @@ public abstract class Character : MonoBehaviour
     public Stat crit_damage_mult;
     public Stat lifesteal;
 
+    public static int COST = 2;
     public float debuf;
     public float energy_treshold;
 
@@ -204,5 +205,10 @@ public abstract class Character : MonoBehaviour
     private string textify_line(string name, Stat stat)
     {
         return name + " : " + stat.basic + " (" + stat.bonus() + ")\n";
+    }
+
+    public virtual int price()
+    {
+        return COST;
     }
 }

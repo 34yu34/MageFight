@@ -10,6 +10,8 @@ public abstract class Tile : MonoBehaviour
     public bool is_replaceable;
     public Character occupant = null;
 
+    public static readonly int COST = 4;
+
     public bool Occupy(ref Character new_occupant)
     {
         if(Is_available())
@@ -55,5 +57,10 @@ public abstract class Tile : MonoBehaviour
     public Sprite get_sprite()
     {
         return GetComponentInChildren<SpriteRenderer>().sprite;
+    }
+
+    public virtual int price()
+    {
+        return COST;
     }
 }

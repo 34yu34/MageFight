@@ -7,14 +7,14 @@ public class Player : MonoBehaviour
 {
 
     public List<Character> characters;
-    public int player_health;
-    public int player_gold;
+    public int health;
+    public int gold;
 
     // Start is called before the first frame update
     void Start()
     {
-        player_gold = 3;
-        player_health = Game.Instance.health_settings;
+        gold = 4;
+        health = Game.Instance.health_settings;
     }
 
     public void Winner()
@@ -24,9 +24,9 @@ public class Player : MonoBehaviour
 
     public void Loser()
     {
-        player_health--;
+        health--;
 
-        if(player_health == 0)
+        if(health == 0)
         {
             //show loss for self and win for other
             SceneManager.LoadScene("MainMenu");
