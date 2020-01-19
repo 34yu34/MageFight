@@ -75,12 +75,10 @@ public class Selection_Handler : MonoBehaviour
     {
         if (char_selection != null)
         {
-            Debug.Log(char_selection.get_sprite());
             return char_selection.get_sprite();
         }
         else if (tile_selection != null)
         {
-            Debug.Log(tile_selection.get_sprite());
             return tile_selection.get_sprite();
         }
         return null;

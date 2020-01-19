@@ -54,6 +54,6 @@ public abstract class Tile : MonoBehaviour
 
     public Sprite get_sprite()
     {
-        return null;
+        return GetComponentInChildren<SpriteRenderer>().sprite;
     }
 }
