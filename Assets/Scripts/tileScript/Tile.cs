@@ -46,4 +46,14 @@ public abstract class Tile : MonoBehaviour
     {
         
     }
+
+    public string textify()
+    {
+        return "";
+    }
+
+    public Sprite get_sprite()
+    {
+        return null;
+    }
 }
