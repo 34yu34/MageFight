@@ -70,6 +70,20 @@ public class Selection_Handler : MonoBehaviour
         return null;
     }
 
+    public GameObject get_selection()
+    {
+        if(char_selection != null)
+        {
+            return char_selection.gameObject;
+        }
+        else if (tile_selection != null)
+        {
+            return tile_selection.gameObject;
+        }
+
+        return null;
+    }
+
     public Sprite get_selection_sprite()
     {
         if (char_selection != null)

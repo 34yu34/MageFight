@@ -19,6 +19,14 @@ public class Info_UI : MonoBehaviour
             GetComponentInParent<Canvas>().enabled = true;
             GetComponentInChildren<Text>().text = Selection_Handler.Instance.get_selection_text();
             GetComponentsInChildren<Image>()[1].sprite = Selection_Handler.Instance.get_selection_sprite();
+            if(Selection_Handler.Instance.get_selection().GetComponent<Character>() != null)
+            {
+                GetComponentsInChildren<Text>()[1].text = "*Stat: Base (Bonus)";
+            }
+            else if(Selection_Handler.Instance.get_selection().GetComponent<Tile>() != null)
+            {
+                GetComponentsInChildren<Text>()[1].text = "";
+            }
         }
         else
         {

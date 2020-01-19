@@ -29,6 +29,7 @@ public class Buy_Menu : MonoBehaviour
             b.enabled = true;
             b.GetComponentInChildren<Text>().text = string.Join(" ", mages[index].name.Split('_'));
             b.GetComponentsInChildren<Image>()[1].sprite = mages[index].GetComponentInChildren<SpriteRenderer>().sprite;
+            b.GetComponentsInChildren<Text>()[1].text = (mages[index].GetComponent<Character>().price()).ToString();
             b.onClick.AddListener(delegate { On_Buy_Button(index, b); });
             if(Game.Instance.player1.characters.Count == 10)
             {
@@ -47,6 +48,7 @@ public class Buy_Menu : MonoBehaviour
             }
             indexes.Add(index);
             b.GetComponentInChildren<Text>().text = terrains[index].name;
+            b.GetComponentsInChildren<Text>()[1].text = (terrains[index].GetComponent<Tile>().price()).ToString();
             b.onClick.AddListener(delegate { On_Buy_Terrain(index); });
         }
     }
