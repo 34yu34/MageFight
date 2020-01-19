@@ -82,7 +82,7 @@ public class Basic_AI : MonoBehaviour
     public virtual bool buy_character()
     {
         Character chr = Character_Handler.Instance.give_random();
-        chr.Start();
+        chr.set_up();
         if (chr.price() <= player.gold)
         {
             chr.gameObject.SetActive(false);

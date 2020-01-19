@@ -142,7 +142,7 @@ public class Buy_Menu : MonoBehaviour
             GameObject new_mage = null;
             new_mage = Instantiate(mages[index], spawn_position, Quaternion.identity);
             Character mage = new_mage.GetComponent<Character>();
-            mage.Start();
+            mage.set_up();
 
             if (Game.Instance.player1.gold < mage.price())
             {

@@ -33,6 +33,11 @@ public abstract class Character : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start()
     {
+
+    }
+
+    public virtual void set_up()
+    {
         health = new Stat(health.basic);
         mana = new Stat(mana.basic);
         mana.curr = 0;
@@ -60,7 +65,6 @@ public abstract class Character : MonoBehaviour
         ability_anim.GetComponentsInChildren<SpriteRenderer>()[8].enabled = false;
         ability_anim.GetComponentsInChildren<SpriteRenderer>()[9].enabled = false;
     }
-
     public virtual void Reset_round()
     {
         health.curr = health.Actual();
