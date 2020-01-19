@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     public Player player2;
     public int health_settings;
     public State state;
+    public int gold_reward = 3;
 
     private int frameCount;
 
@@ -64,12 +65,14 @@ public class Game : MonoBehaviour
 
     public void Reset_characters()
     {
+        player1.gold += gold_reward;
         foreach (Character character in player1.characters)
         {
             character.gameObject.SetActive(true);
             character.Reset_round();
             Snap_to_base(character);
         }
+        player2.gold += gold_reward;
         foreach (Character character in player2.characters)
         {
             character.gameObject.SetActive(true);

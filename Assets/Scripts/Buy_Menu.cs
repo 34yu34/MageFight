@@ -81,7 +81,7 @@ public class Buy_Menu : MonoBehaviour
 
     public void On_Buy_Button(int index, Button b)
     {
-
+ 
         GameObject[] GameObject_tiles = GameObject.FindGameObjectsWithTag("Tile");
         List<Tile> empty_tiles = new List<Tile>();
         foreach (GameObject GameObject_tile in GameObject_tiles)
@@ -101,6 +101,14 @@ public class Buy_Menu : MonoBehaviour
             new_mage = Instantiate(mages[index], spawn_position, Quaternion.identity);
             Character mage = new_mage.GetComponent<Character>();
             mage.Start();
+
+            if (Game.Instance.player1.gold < mage.price())
+            {
+                Destroy(new_mage);
+                return;
+            }
+            Game.Instance.player1.gold -= mage.price();
+
             mage.owner = Game.Instance.player1;
             Game.Instance.player1.characters.Add(mage);
             empty_tiles[0].Occupy(ref mage);
@@ -111,6 +119,14 @@ public class Buy_Menu : MonoBehaviour
     public void On_Buy_Terrain(int index)
     {
         GameObject new_terrain = Instantiate(terrains[index], terrain_spawn_position, Quaternion.identity);
+
+        if (Game.Instance.player1.gold < new_terrain.GetComponent<Tile>().price())
+        {
+            Destroy(new_terrain);
+            return;
+        }
+        Game.Instance.player1.gold -= new_terrain.GetComponent<Tile>().price();
+
         new_terrain.GetComponent<Tile>().is_placed = false;
         foreach (Button b in terrains_buyers)
         {
