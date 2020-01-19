@@ -47,6 +47,7 @@ public abstract class Character : MonoBehaviour
 
     public void Reset_round()
     {
+        gameObject.SetActive(true);
         health.curr = health.Actual();
         mana.curr = 0;
         Remove_energy();
