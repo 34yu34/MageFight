@@ -177,7 +177,8 @@ public abstract class Character : MonoBehaviour
         if(target == null)
         {
             Game.Instance.state = Game.State.Reset;
-            Game.Instance.Get_other_player(team).player_health--;
+            Game.Instance.Get_other_player(team).Loser();
+            Game.Instance.Get_player(team).Winner();
         }
     }
 

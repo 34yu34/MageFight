@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Water_Tile : Tile
 {
     public float CRIT_BONUS = 0.15f;
