@@ -11,6 +11,15 @@ public class Earth_Tile : Tile
         occupant.health.Add_raw(HEALTH_BONUS);
     }
 
+    public override string textify()
+    {
+        string text = "";
+        text += ("The rocky canyon passes of the East are the perfect training ground " +
+            "for Mages who prefer a hardy constitution to a quick spell.\n\n");
+        text += ("Total health increased by " + HEALTH_BONUS);
+        return text;
+    }
+
     public override void remove_passive()
     {
         occupant.health.Remove_raw(HEALTH_BONUS);
