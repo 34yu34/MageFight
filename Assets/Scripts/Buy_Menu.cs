@@ -27,7 +27,7 @@ public class Buy_Menu : MonoBehaviour
             b.onClick.RemoveAllListeners();
             int index = Random.Range(0, mages.Count);
             b.enabled = true;
-            b.GetComponentInChildren<Text>().text = mages[index].name;
+            b.GetComponentInChildren<Text>().text = string.Join(" ", mages[index].name.Split('_'));
             b.GetComponentsInChildren<Image>()[1].sprite = mages[index].GetComponentInChildren<SpriteRenderer>().sprite;
             b.onClick.AddListener(delegate { On_Buy_Button(index, b); });
             if(Game.Instance.player1.characters.Count == 10)
