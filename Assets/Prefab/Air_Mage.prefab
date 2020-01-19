@@ -82,7 +82,7 @@ MonoBehaviour:
     basic: 40
     curr: 0
   att_speed:
-    basic: 1.6
+    basic: 1.5
     curr: 0
   crit_chance:
     basic: 0.15

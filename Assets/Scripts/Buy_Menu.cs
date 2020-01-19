@@ -1,38 +1,88 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Character_Enum;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Buy_Menu : MonoBehaviour
 {
-    public GameObject Air_Mage_Prefab;
-    public GameObject Fire_Mage_Prefab;
+    public List<GameObject> mages;
+    public List<GameObject> terrains;
+    public List<Button> buyers;
+    public List<Button> terrains_buyers;
+    public const int NUMBER_BUTTON = 3;
+    public Vector3 terrain_spawn_position = new Vector3(30, 5, 17);
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        
+        round_reset();
+    }
+
+    void round_reset()
+    {
+        foreach (Button b in buyers)
+        {
+            int index = Random.Range(0, mages.Count);
+            b.GetComponentInChildren<Text>().text = mages[index].name;
+            b.GetComponentsInChildren<Image>()[1].sprite = mages[index].GetComponentInChildren<SpriteRenderer>().sprite;
+            b.onClick.AddListener(delegate { On_Buy_Button(index, b); });
+        }
+        List<int> indexes = new List<int>();
+        foreach (Button b in terrains_buyers)
+        {
+            int index = Random.Range(0, terrains.Count);
+            while (indexes.Contains(index) && indexes.Count < terrains.Count)
+            {
+                index = Random.Range(0, terrains.Count);
+            }
+            indexes.Add(index);
+            b.GetComponentInChildren<Text>().text = terrains[index].name;
+            //b.GetComponentsInChildren<Image>()[1].sprite = terrains[index].GetComponentInChildren<SpriteRenderer>().sprite;
+            b.onClick.AddListener(delegate { On_Buy_Terrain(index); });
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        
+        gameObject.GetComponentInParent<Canvas>().enabled = (Game.Instance.state == Game.State.Buying);
+        foreach (Button b in buyers)
+        {
+            if (!b.enabled)
+            {
+                b.GetComponent<Image>().color = Color.grey;
+            }
+            else
+            {
+                b.GetComponent<Image>().color = new Color(125, 125, 125);
+            }
+        }
+        foreach (Button b in terrains_buyers)
+        {
+            if (!b.enabled)
+            {
+                b.GetComponent<Image>().color = Color.grey;
+            }
+            else
+            {
+                b.GetComponent<Image>().color = new Color(125, 125, 125);
+            }
+        }
     }
 
-    public void On_Buy_Button(int Type)
+    public void On_Buy_Button(int index, Button b)
     {
-        Character_Type Char_Type = (Character_Type)Type;
 
         GameObject[] GameObject_tiles = GameObject.FindGameObjectsWithTag("Tile");
         List<Tile> empty_tiles = new List<Tile>();
         foreach (GameObject GameObject_tile in GameObject_tiles)
         {
-            Tile tile = GameObject_tile.GetComponent<Tile>();
+            Tile tile = GameObject_tile.GetComponent<Rest_Tile>();
             if (tile != null)
             {
                 if (tile.Is_available() && !tile.is_playable)
-                    empty_tiles.Add(GameObject_tile.GetComponent<Tile>());
+                    empty_tiles.Add(GameObject_tile.GetComponent<Rest_Tile>());
             }
         }
         
@@ -40,18 +90,21 @@ public class Buy_Menu : MonoBehaviour
         {
             Vector3 spawn_position = empty_tiles[0].transform.position + (new Vector3(0,3,0));
             GameObject new_mage = null;
-            switch (Char_Type)
-            {
-                case Character_Type.Air:
-                    new_mage = Instantiate(Air_Mage_Prefab, spawn_position, Quaternion.identity);
-                    break;
-                case Character_Type.Fire:
-                    new_mage = Instantiate(Fire_Mage_Prefab, spawn_position, Quaternion.identity);
-                    break;
-            }
+            new_mage = Instantiate(mages[index], spawn_position, Quaternion.identity);
             Character mage = new_mage.GetComponent<Character>();
+            mage.Start();
             empty_tiles[0].Occupy(ref mage);
-            mage.tile = empty_tiles[0];
+        }
+        b.enabled = false;
+    }
+
+    public void On_Buy_Terrain(int index)
+    {
+        GameObject new_terrain = Instantiate(terrains[index], terrain_spawn_position, Quaternion.identity);
+        new_terrain.GetComponent<Tile>().is_placed = false;
+        foreach (Button b in terrains_buyers)
+        {
+            b.enabled = false;
         }
     }
 }

@@ -61,11 +61,13 @@ public class Game : MonoBehaviour
         foreach (Character character in player1.characters)
         {
             character.Reset_round();
+            gameObject.SetActive(true);
             Snap_to_base(character);
         }
         foreach (Character character in player2.characters)
         {
             character.Reset_round();
+            gameObject.SetActive(true);
         }
     }
 
@@ -87,7 +89,7 @@ public class Game : MonoBehaviour
         {
             Vector3 spawn_position = empty_tiles[0].transform.position + (new Vector3(0, 3, 0));
             character.transform.position = spawn_position;
-            empty_tiles[0].SetFoot(ref character);
+            empty_tiles[0].Occupy(ref character);
         }
     }
 
