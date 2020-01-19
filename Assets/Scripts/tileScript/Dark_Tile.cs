@@ -11,6 +11,15 @@ public class Dark_Tile : Tile
         occupant.lifesteal.Add_raw(LIFESTEAL_BONUS);
     }
 
+    public override string textify()
+    {
+        string text = "";
+        text += ("Deep in The Maw is where particularly foolish Mages can meddle with the " +
+            "forces of life and death. Tread lightly on the edge of the Abyss.\n\n");
+        text += ("Amount of life stolen per attack increased by " + LIFESTEAL_BONUS*100 + "%");
+        return text;
+    }
+
     public override void remove_passive()
     {
         occupant.lifesteal.Remove_raw(LIFESTEAL_BONUS);

@@ -6,8 +6,6 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    static float mana_on_attack = 10.0f;
-
     public Player owner;
     public Timer timer = null;
     public Character target = null;
@@ -16,6 +14,7 @@ public abstract class Character : MonoBehaviour
 
     public Stat health;
     public Stat mana;
+    public Stat mana_on_attack;
     public Stat energy;
     public Stat energy_remover;
     public Stat att_damage;
@@ -34,6 +33,7 @@ public abstract class Character : MonoBehaviour
         health = new Stat(health.basic);
         mana = new Stat(mana.basic);
         mana.curr = 0;
+        mana_on_attack = new Stat(mana_on_attack.basic);
         energy = new Stat(energy.basic);
         energy_remover = new Stat(energy_remover.basic);
         att_damage = new Stat(att_damage.basic);
@@ -74,7 +74,8 @@ public abstract class Character : MonoBehaviour
     private void Apply_permanent_debuff(float debuff)
     {
         health.Add_mult(debuff);
-        mana.Add_mult(debuff);
+        mana_on_attack.Add_mult(debuff);
+        mana.Add_mult(-debuff);
         att_damage.Add_mult(debuff);
         att_speed.Add_mult(debuff);
         crit_chance.Add_mult(debuff);
@@ -153,7 +154,7 @@ public abstract class Character : MonoBehaviour
         if (target != null && this.Is_alive() && target.Is_alive())
         {
             Instantiate(projectile, GetComponent<Transform>().position, GetComponent<Transform>().rotation).GetComponent<Projectile>().set_target(target, Calculate_damage(), this);
-            mana.curr += mana_on_attack;
+            mana.curr += mana_on_attack.Actual();
             GetComponent<AudioSource>().Play();
             if (mana.curr >= mana.Actual())
             {

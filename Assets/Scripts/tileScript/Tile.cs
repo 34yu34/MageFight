@@ -49,7 +49,7 @@ public abstract class Tile : MonoBehaviour
         
     }
 
-    public string textify()
+    public virtual string textify()
     {
         return "";
     }

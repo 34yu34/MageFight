@@ -116,12 +116,12 @@ public class Drag_And_Drop : MonoBehaviour
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("Tile");
         GameObject closest = null;
-        float distance = Mathf.Infinity;
+        float distance = 150.0f;
         foreach (GameObject go in gos)
         {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
-            if (curDistance < distance && !(curDistance < 0.1f))
+            if (curDistance < distance && curDistance > 0.1f && go.GetComponent<Tile>().is_dropable)
             {
                 closest = go;
                 distance = curDistance;

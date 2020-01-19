@@ -9,6 +9,14 @@ public class Normal_Tile : Tile
     {
     }
 
+    public override string textify()
+    {
+        string text = "";
+        text += ("It's grass! What were you expecting to find here?\n\n");
+        text += ("Seriously, it doesn't do anything.");
+        return text;
+    }
+
     public override void remove_passive()
     {
     }

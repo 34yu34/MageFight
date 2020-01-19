@@ -11,6 +11,15 @@ public class Fire_Tile : Tile
         occupant.att_damage.Add_mult(ATT_BONUS);
     }
 
+    public override string textify()
+    {
+        string text = "";
+        text += ("Grueling heat, inhospitable conditions and sheer danger are the conditions " +
+            "needed for the true power of a Mage's spells to shine.\n\n");
+        text += ("Attack damage increased by " + ATT_BONUS * 100 + "%");
+        return text;
+    }
+
     public override void remove_passive()
     {
         occupant.att_damage.Remove_mult(ATT_BONUS); 
