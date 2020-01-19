@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Water_Mage : Character
 {
+    public static float heal_multiplier = 5.0f;
+
     public Water_Mage()
     {
     }
@@ -21,6 +23,15 @@ public class Water_Mage : Character
     }
     public override void Launch_ability()
     {
+        Character lowest = owner.characters[0]; 
+        foreach (Character chr in owner.characters)
+        {
+            if (chr.Is_alive() && chr.health.curr < lowest.health.curr)
+            {
+                lowest = chr;
+            }
+        }
+        lowest.heal(att_damage.curr * heal_multiplier);
 
     }
 }

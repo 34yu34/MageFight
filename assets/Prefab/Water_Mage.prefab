@@ -650,6 +650,7 @@ MonoBehaviour:
     curr: 0
   debuff: []
   energy_treshold: []
+  DAMAGE_MULT: 3
 --- !u!1 &8457224489364819489
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +726,7 @@ MonoBehaviour:
     basic: 1200
     curr: 0
   mana:
-    basic: 100
+    basic: 80
     curr: 0
   energy:
     basic: 1000

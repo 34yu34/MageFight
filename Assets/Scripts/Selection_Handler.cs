@@ -34,7 +34,6 @@ public class Selection_Handler : MonoBehaviour
         {
             RaycastHit hit_info;
             Get_clicked_object(out hit_info);
-            Debug.Log(hit_info);
 
         }
     }
