@@ -184,12 +184,6 @@ public abstract class Character : MonoBehaviour
                 distance = new_distance;
             }
         }
-        if(target == null)
-        {
-            Game.Instance.state = Game.State.Reset;
-            Game.Instance.Get_other_player(owner).Loser();
-            owner.Winner();
-        }
     }
 
     public string textify()
