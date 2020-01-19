@@ -95,7 +95,7 @@ public class Drag_And_Drop : MonoBehaviour
         {
             GameObject obj = hit.collider.gameObject;
             Tile tile = obj.GetComponentInParent<Tile>();
-            if (obj.tag == "Mage" || (tile != null && tile.is_placed == false))
+            if ((obj.tag == "Mage" && Game.Instance.state == Game.State.Planning) || (tile != null && tile.is_placed == false))
             {
                 if (tile != null)
                 {

@@ -24,15 +24,21 @@ public class Buy_Menu : MonoBehaviour
 
         foreach (Button b in buyers)
         {
+            b.onClick.RemoveAllListeners();
             int index = Random.Range(0, mages.Count);
             b.enabled = true;
             b.GetComponentInChildren<Text>().text = mages[index].name;
             b.GetComponentsInChildren<Image>()[1].sprite = mages[index].GetComponentInChildren<SpriteRenderer>().sprite;
             b.onClick.AddListener(delegate { On_Buy_Button(index, b); });
+            if(Game.Instance.player1.characters.Count == 10)
+            {
+                b.enabled = false;
+            }
         }
         List<int> indexes = new List<int>();
         foreach (Button b in terrains_buyers)
         {
+            b.onClick.RemoveAllListeners();
             int index = Random.Range(0, terrains.Count);
             b.enabled = true;
             while (indexes.Contains(index) && indexes.Count < terrains.Count)
@@ -95,6 +101,7 @@ public class Buy_Menu : MonoBehaviour
             new_mage = Instantiate(mages[index], spawn_position, Quaternion.identity);
             Character mage = new_mage.GetComponent<Character>();
             mage.Start();
+            Game.Instance.player1.characters.Add(mage);
             empty_tiles[0].Occupy(ref mage);
         }
         b.enabled = false;
