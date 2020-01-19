@@ -49,5 +49,10 @@ public class Projectile : MonoBehaviour
                 }
             }
         }
+
+        if (!target.Is_alive())
+        {
+            Destroy(gameObject);
+        }
     }
 }

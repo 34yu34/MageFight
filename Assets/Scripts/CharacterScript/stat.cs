@@ -51,7 +51,7 @@ public class Stat
 
     private Stat calc_actual()
     {
-        float current_over_actual = curr / actual;
+        float current_over_actual = actual == 0 ? 1 : curr / actual;
 
         float mult = 1; // mult by 1 stays the same
         for (int i = 0; i < _bonus_mult.Count; ++i)
