@@ -46,10 +46,6 @@ public class Basic_AI : MonoBehaviour
                 case Game.State.Fighting:
                     make_visible(true);
                     break;
-                
-                case Game.State.Reset:
-                    make_visible(false);
-                    break;
             }
             last_state = Game.Instance.state;
         }
@@ -84,17 +80,22 @@ public class Basic_AI : MonoBehaviour
         Character chr = Character_Handler.Instance.give_random();
         if (chr.price() <= player.gold)
         {
+            chr.gameObject.SetActive(false);
             player.gold -= chr.price();
             player.characters.Add(chr);
             reroll_strat();
             return true;
+        }
+        else
+        {
+            Destroy(chr.gameObject);
         }
         return false;
     }
 
     public virtual bool buy_tile()
     {
-        Tile tile = Tiles_Handler.Instance.give_random();
+        Tile tile = Tile_Handler.Instance.give_random();
         if (tile.price() <= player.gold)
         {
             player.gold -= tile.price();
@@ -146,7 +147,8 @@ public class Basic_AI : MonoBehaviour
         for (int i = 0; i < player.characters.Count; ++i)
         {
             Character pl = player.characters[i];
-            if (pl.energy.curr < 600.0f)
+            pl.Start();
+            if (pl.energy.curr > 600.0f)
             {
                 for(int j = 0; j < own_tiles.Count; ++j)
                 {
@@ -161,10 +163,14 @@ public class Basic_AI : MonoBehaviour
 
                 for (int j = 0; j < own_tiles.Count; ++j)
                 {
-                     Tile tile = own_tiles[j];
-                     pl.transform.position = tile.transform.position + (new Vector3(0, 2, 0));
-                     tile.Occupy(ref pl);
-                     playing_char.Add(pl);
+                    Tile tile = own_tiles[j];
+                    if (tile.Is_available())
+                    {
+                        pl.transform.position = tile.transform.position + (new Vector3(0, 2, 0));
+                        tile.Occupy(ref pl);
+                        playing_char.Add(pl);
+
+                    }
                 }
             }
         }

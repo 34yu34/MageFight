@@ -66,14 +66,15 @@ public class Game : MonoBehaviour
     {
         foreach (Character character in player1.characters)
         {
+            character.gameObject.SetActive(true);
             character.Reset_round();
-            gameObject.SetActive(true);
             Snap_to_base(character);
         }
         foreach (Character character in player2.characters)
         {
+            character.gameObject.SetActive(true);
             character.Reset_round();
-            gameObject.SetActive(true);
+            character.gameObject.SetActive(false);
         }
     }
 
@@ -99,14 +100,9 @@ public class Game : MonoBehaviour
         }
     }
 
-    public Player Get_other_player(int team)
+    public Player Get_other_player(Player p)
     {
-        return (team == 0) ? player2 : player1;
-    }
-
-    public Player Get_player(int team)
-    {
-        return (team == 0) ? player1 : player2;
+        return (p == player1) ? player2 : player1;
     }
 
     public List<Player> Get_players()

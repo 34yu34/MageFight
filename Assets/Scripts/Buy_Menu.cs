@@ -101,6 +101,7 @@ public class Buy_Menu : MonoBehaviour
             new_mage = Instantiate(mages[index], spawn_position, Quaternion.identity);
             Character mage = new_mage.GetComponent<Character>();
             mage.Start();
+            mage.owner = Game.Instance.player1;
             Game.Instance.player1.characters.Add(mage);
             empty_tiles[0].Occupy(ref mage);
         }

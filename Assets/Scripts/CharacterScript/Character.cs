@@ -8,7 +8,7 @@ public abstract class Character : MonoBehaviour
 {
     static float mana_on_attack = 10.0f;
 
-    public int team;
+    public Player owner;
     public Timer timer = null;
     public Character target = null;
     public Tile tile = null;
@@ -47,7 +47,6 @@ public abstract class Character : MonoBehaviour
 
     public void Reset_round()
     {
-        gameObject.SetActive(true);
         health.curr = health.Actual();
         mana.curr = 0;
         Remove_energy();
@@ -161,7 +160,7 @@ public abstract class Character : MonoBehaviour
 
     public void Find_target()
     {
-        List<Character> ennemies = Game.Instance.Get_other_player(team).characters;
+        List<Character> ennemies = Game.Instance.Get_other_player(owner).characters;
         float distance = 3000000.0f;
 
 
@@ -177,8 +176,8 @@ public abstract class Character : MonoBehaviour
         if(target == null)
         {
             Game.Instance.state = Game.State.Reset;
-            Game.Instance.Get_other_player(team).Loser();
-            Game.Instance.Get_player(team).Winner();
+            Game.Instance.Get_other_player(owner).Loser();
+            owner.Winner();
         }
     }
 

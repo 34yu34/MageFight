@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tiles_Handler : MonoBehaviour
+public class Tile_Handler : MonoBehaviour
 {
     public List<GameObject> tiles;
-    private static Tiles_Handler instance;
-    public static Tiles_Handler Instance
+    private static Tile_Handler instance;
+    public static Tile_Handler Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = GameObject.FindGameObjectWithTag("Global").GetComponent<Tiles_Handler>();
+                instance = GameObject.FindGameObjectWithTag("Global").GetComponent<Tile_Handler>();
             }
             return instance;
         }

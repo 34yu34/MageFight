@@ -31,13 +31,5 @@ public class ReadyButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Game.Instance.state == Game.State.Fighting)
-        {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(true);
-        }
     }
 }
