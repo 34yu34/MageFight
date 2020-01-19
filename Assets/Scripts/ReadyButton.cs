@@ -35,5 +35,9 @@ public class ReadyButton : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        else
+        {
+            gameObject.SetActive(true);
+        }
     }
 }
