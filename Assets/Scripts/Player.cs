@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
 
     public List<Character> characters;
-    public int health;
+    public uint health;
     public int gold;
 
     // Start is called before the first frame update

@@ -39,7 +39,10 @@ public class Health_Settings : MonoBehaviour
 
     void Dec_health()
     {
-        health.GetComponent<Text>().text = (--Global_Vars.health_setting).ToString();
+        if (Global_Vars.health_setting > 0)
+        {
+            health.GetComponent<Text>().text = (--Global_Vars.health_setting).ToString();
+        }
     }
 
     // Update is called once per frame
