@@ -44,6 +44,7 @@ public abstract class Character : MonoBehaviour
         debuff = new float[3] { -0.2f, -0.3f, -0.4f };
         energy_treshold = new float[3] { 0.5f, 0.35f, 0.2f };
         gameObject.tag = "Mage";
+        
     }
 
     public virtual void Reset_round()
@@ -88,6 +89,10 @@ public abstract class Character : MonoBehaviour
         {
             return;
         }
+
+        Damage_Popup_Controler.Instance.Initialize();
+        Damage_Popup_Controler.Instance.CreateFloatingText(dmg.ToString(), transform);
+
         health.curr -= dmg;
         if(health.curr <= 0)
         {
