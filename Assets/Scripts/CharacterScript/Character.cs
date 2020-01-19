@@ -73,8 +73,8 @@ public abstract class Character : MonoBehaviour
     private void Apply_permanent_debuff(float debuff)
     {
         health.Add_mult(debuff);
-        mana.Add_mult(debuff);
         mana_on_attack.Add_mult(debuff);
+        mana.Add_mult(-debuff);
         att_damage.Add_mult(debuff);
         att_speed.Add_mult(debuff);
         crit_chance.Add_mult(debuff);
