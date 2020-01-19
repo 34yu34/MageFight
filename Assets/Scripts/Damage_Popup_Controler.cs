@@ -27,7 +27,7 @@ public class Damage_Popup_Controler : MonoBehaviour
         canvas = GameObject.Find("Canvas");
         if (!Popup_Text_Parent)
         {
-            Popup_Text_Parent = Resources.Load("PopupTextParent", typeof(GameObject)) as GameObject;
+            Popup_Text_Parent = Resources.Load("PopupTextParent_Damage", typeof(GameObject)) as GameObject;
         }
     }
 
