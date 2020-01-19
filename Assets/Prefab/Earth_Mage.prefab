@@ -64,7 +64,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  Type: 2
   target: {fileID: 0}
   tile: {fileID: 0}
   projectile: {fileID: 6861943897596501360, guid: bb698056847fc8a4ab97a84248252993,
@@ -96,6 +95,8 @@ MonoBehaviour:
   lifesteal:
     basic: 0
     curr: 0
+  debuf: 0
+  energy_treshold: 0
 --- !u!82 &1510917297935114160
 AudioSource:
   m_ObjectHideFlags: 0
@@ -107,7 +108,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ab316113aac66754d8fa3a7faba8f0e3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

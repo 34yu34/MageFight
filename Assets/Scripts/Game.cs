@@ -29,6 +29,11 @@ public class Game : MonoBehaviour
         frameCount = 0;
     }
 
+    private void Start()
+    {
+        state = State.Buying;
+    }
+
     private void Update()
     {
         if(state == State.Reset)
