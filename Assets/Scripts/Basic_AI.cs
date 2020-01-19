@@ -116,7 +116,14 @@ public class Basic_AI : MonoBehaviour
 
     public virtual void reroll_strat()
     {
-        strategy = Random.Range(0, 4) > 2 ? Strategy.Tile : Strategy.Character;
+        if (player.characters.Count >= 10)
+        {
+            strategy = Strategy.Tile;
+        }
+        else
+        {
+            strategy = Random.Range(0, 4) > 2 ? Strategy.Tile : Strategy.Character;
+        }
         Buy();
     }
 
@@ -140,9 +147,7 @@ public class Basic_AI : MonoBehaviour
                     }
                 }
             }
-
             tile_to_place = null;
-
         }
     }
 

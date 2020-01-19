@@ -27,7 +27,7 @@ public class Water_Mage : Character
         float health = 30000000.0f; // this is use to make sure they are alive
         foreach (Character chr in owner.characters)
         {
-            if (chr.Is_alive() && chr.health.curr < health)
+            if (chr.Is_alive() && chr.Is_on_board() && chr.health.curr < health)
             {
                 lowest = chr;
                 health = chr.health.curr;

@@ -2676,7 +2676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863302258}
   m_LocalRotation: {x: -0.29883623, y: 0.64085644, z: -0.29883623, w: -0.64085644}
-  m_LocalPosition: {x: 50, y: 45, z: -0}
+  m_LocalPosition: {x: 60, y: 60, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6017,10 +6017,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2bb3c94afaa734d9a0960d6def05c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Left_Damage_Animator_Controller: {fileID: 9100000, guid: 1c685f9ad139c0946b3ec0318dac3eaf,
-    type: 2}
-  Right_Damage_Animator_Controller: {fileID: 9100000, guid: 5d125278269efe04dba99e37f6dfd345,
-    type: 2}
+  Left_Damage_Animator_Controller: {fileID: 0}
+  Right_Damage_Animator_Controller: {fileID: 0}
 --- !u!1001 &1858266501
 PrefabInstance:
   m_ObjectHideFlags: 0
