@@ -91,7 +91,7 @@ public abstract class Character : MonoBehaviour
         }
 
         Damage_Popup_Controler.Instance.Initialize();
-        Damage_Popup_Controler.Instance.CreateFloatingText(dmg.ToString(), transform);
+        Damage_Popup_Controler.Instance.CreateFloatingText(Mathf.Floor(dmg).ToString(), transform);
 
         health.curr -= dmg;
         if(health.curr <= 0)
