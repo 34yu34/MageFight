@@ -113,6 +113,9 @@ public abstract class Character : MonoBehaviour
     {
         health.curr += life;
         health.curr = health.curr < health.Actual() ? health.curr : health.Actual();
+
+        Heal_Popup_Controler.Instance.Initialize();
+        Heal_Popup_Controler.Instance.CreateFloatingText(Mathf.Floor(life).ToString(), transform);
     }
 
     public bool Is_alive()
