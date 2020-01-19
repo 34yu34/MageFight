@@ -6,6 +6,18 @@ public class Character_Handler : MonoBehaviour
 {
     public List<GameObject> mages;
     private static Character_Handler instance;
+
+    public enum Chr_Mod_Stat
+    {
+        HEALTH, 
+        MANA, 
+        ATT_DAMAGE,
+        ATT_SPEED,
+        CRIT,
+        CRIT_DMG,
+        LIFESTEAL,
+    }
+
     public static Character_Handler Instance
     {
         get

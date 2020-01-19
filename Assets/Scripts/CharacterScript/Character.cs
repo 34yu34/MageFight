@@ -230,4 +230,33 @@ public abstract class Character : MonoBehaviour
     {
         return COST;
     }
+
+    public Stat get_stat(Character_Handler.Chr_Mod_Stat stat)
+    {
+        switch (stat)
+        {
+            case Character_Handler.Chr_Mod_Stat.HEALTH:
+                return health;
+                break;
+            case Character_Handler.Chr_Mod_Stat.MANA:
+                return mana;
+                break;
+            case Character_Handler.Chr_Mod_Stat.ATT_DAMAGE:
+                return att_damage;
+                break;
+            case Character_Handler.Chr_Mod_Stat.ATT_SPEED:
+                return att_speed;
+                break;
+            case Character_Handler.Chr_Mod_Stat.CRIT:
+                return crit_chance;
+                break;
+            case Character_Handler.Chr_Mod_Stat.CRIT_DMG:
+                return crit_damage_mult;
+                break;
+            case Character_Handler.Chr_Mod_Stat.LIFESTEAL:
+                return lifesteal;
+                break;
+        }
+        return null;
+    }
 }
