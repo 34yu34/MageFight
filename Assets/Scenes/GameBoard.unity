@@ -6017,6 +6017,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2bb3c94afaa734d9a0960d6def05c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Left_Damage_Animator_Controller: {fileID: 9100000, guid: 1c685f9ad139c0946b3ec0318dac3eaf,
+    type: 2}
+  Right_Damage_Animator_Controller: {fileID: 9100000, guid: 5d125278269efe04dba99e37f6dfd345,
+    type: 2}
 --- !u!1001 &1858266501
 PrefabInstance:
   m_ObjectHideFlags: 0
