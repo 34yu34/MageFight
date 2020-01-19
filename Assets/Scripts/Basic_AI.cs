@@ -46,6 +46,10 @@ public class Basic_AI : MonoBehaviour
                 case Game.State.Fighting:
                     make_visible(true);
                     break;
+
+                case Game.State.Reset:
+                    Reset();
+                    break;
             }
             last_state = Game.Instance.state;
         }
@@ -78,11 +82,13 @@ public class Basic_AI : MonoBehaviour
     public virtual bool buy_character()
     {
         Character chr = Character_Handler.Instance.give_random();
+        chr.Start();
         if (chr.price() <= player.gold)
         {
             chr.gameObject.SetActive(false);
             player.gold -= chr.price();
             player.characters.Add(chr);
+            chr.owner = player;
             reroll_strat();
             return true;
         }
@@ -147,7 +153,6 @@ public class Basic_AI : MonoBehaviour
         for (int i = 0; i < player.characters.Count; ++i)
         {
             Character pl = player.characters[i];
-            pl.Start();
             if (pl.energy.curr > 600.0f)
             {
                 for(int j = 0; j < own_tiles.Count; ++j)
@@ -169,7 +174,6 @@ public class Basic_AI : MonoBehaviour
                         pl.transform.position = tile.transform.position + (new Vector3(0, 2, 0));
                         tile.Occupy(ref pl);
                         playing_char.Add(pl);
-
                     }
                 }
             }
@@ -181,6 +185,14 @@ public class Basic_AI : MonoBehaviour
         foreach(Character pl in playing_char)
         {
             pl.gameObject.SetActive(is_visible);
+        }
+    }
+
+    public void Reset()
+    {
+        foreach(Character bob in player.characters)
+        {
+            bob.tile = null;
         }
     }
 }

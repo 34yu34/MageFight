@@ -33,6 +33,7 @@ public abstract class Character : MonoBehaviour
     {
         health = new Stat(health.basic);
         mana = new Stat(mana.basic);
+        mana.curr = 0;
         energy = new Stat(energy.basic);
         energy_remover = new Stat(energy_remover.basic);
         att_damage = new Stat(att_damage.basic);
@@ -45,7 +46,7 @@ public abstract class Character : MonoBehaviour
         gameObject.tag = "Mage";
     }
 
-    public void Reset_round()
+    public virtual void Reset_round()
     {
         health.curr = health.Actual();
         mana.curr = 0;
@@ -195,7 +196,7 @@ public abstract class Character : MonoBehaviour
 
     public string textify()
     {
-        string text = "";
+        string text = name + "\n";
         text += textify_line("Attack Damage", att_damage);
         text += textify_line("Attack Speed", att_speed);
         text += textify_line("Health", health);

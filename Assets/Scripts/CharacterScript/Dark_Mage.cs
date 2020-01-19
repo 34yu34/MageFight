@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Dark_Mage : Character
 {
+    public float damage_mult = 2.0f;
+    private Stat damage;
     public Dark_Mage()
     {
     }
@@ -22,6 +24,7 @@ public class Dark_Mage : Character
 
     public override void Launch_ability()
     {
-
+        target.Take_damage(att_damage.curr * damage_mult);
+        heal(att_damage.curr * damage_mult);
     }
 }
