@@ -129,7 +129,7 @@ MonoBehaviour:
   is_placed: 0
   is_replaceable: 1
   occupant: {fileID: 0}
-  HEALTH_BONUS: 300
+  HEALTH_BONUS: 500
 --- !u!1001 &498951612546943863
 PrefabInstance:
   m_ObjectHideFlags: 0

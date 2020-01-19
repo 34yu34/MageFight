@@ -50,7 +50,7 @@ MonoBehaviour:
   is_placed: 0
   is_replaceable: 1
   occupant: {fileID: 0}
-  CRIT_BONUS: 0.15
+  MANA_ON_ATTACK_MULT: 1
 --- !u!1 &5333251501178537175
 GameObject:
   m_ObjectHideFlags: 0

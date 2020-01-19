@@ -50,7 +50,7 @@ MonoBehaviour:
   is_placed: 0
   is_replaceable: 1
   occupant: {fileID: 0}
-  ATT_BONUS: 0.2
+  ATT_BONUS: 0.4
 --- !u!1 &4712368755080939300
 GameObject:
   m_ObjectHideFlags: 0

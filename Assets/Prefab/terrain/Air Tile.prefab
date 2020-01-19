@@ -129,7 +129,7 @@ MonoBehaviour:
   is_placed: 0
   is_replaceable: 1
   occupant: {fileID: 0}
-  ATT_SPD_BONUS: 0.3
+  ATT_SPD_BONUS: 0.5
 --- !u!1001 &1964898398506212138
 PrefabInstance:
   m_ObjectHideFlags: 0
