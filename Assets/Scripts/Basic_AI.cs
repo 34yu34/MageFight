@@ -177,6 +177,10 @@ public class Basic_AI : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                pl.energy.curr += pl.energy_remover.curr;
+            }
         }
     }
    
