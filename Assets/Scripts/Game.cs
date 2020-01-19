@@ -45,6 +45,7 @@ public class Game : MonoBehaviour
                 Reset_characters();
                 state = State.Buying;
                 frameCount = 0;
+                GetComponentInChildren<Buy_Menu>().round_reset();
             }
         }
     }

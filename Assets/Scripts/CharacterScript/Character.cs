@@ -122,8 +122,6 @@ public abstract class Character : MonoBehaviour
                     Fighting();
                 }
                 break;
-            case Game.State.Buying:
-                break;
         }
     }
 

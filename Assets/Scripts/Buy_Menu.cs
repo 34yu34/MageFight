@@ -19,11 +19,13 @@ public class Buy_Menu : MonoBehaviour
         round_reset();
     }
 
-    void round_reset()
+    public void round_reset()
     {
+
         foreach (Button b in buyers)
         {
             int index = Random.Range(0, mages.Count);
+            b.enabled = true;
             b.GetComponentInChildren<Text>().text = mages[index].name;
             b.GetComponentsInChildren<Image>()[1].sprite = mages[index].GetComponentInChildren<SpriteRenderer>().sprite;
             b.onClick.AddListener(delegate { On_Buy_Button(index, b); });
@@ -32,13 +34,13 @@ public class Buy_Menu : MonoBehaviour
         foreach (Button b in terrains_buyers)
         {
             int index = Random.Range(0, terrains.Count);
+            b.enabled = true;
             while (indexes.Contains(index) && indexes.Count < terrains.Count)
             {
                 index = Random.Range(0, terrains.Count);
             }
             indexes.Add(index);
             b.GetComponentInChildren<Text>().text = terrains[index].name;
-            //b.GetComponentsInChildren<Image>()[1].sprite = terrains[index].GetComponentInChildren<SpriteRenderer>().sprite;
             b.onClick.AddListener(delegate { On_Buy_Terrain(index); });
         }
     }
@@ -46,7 +48,7 @@ public class Buy_Menu : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        gameObject.GetComponentInParent<Canvas>().enabled = (Game.Instance.state == Game.State.Buying);
+        GetComponent<CanvasGroup>().alpha = (Game.Instance.state == Game.State.Buying) ? 1 : 0;
         foreach (Button b in buyers)
         {
             if (!b.enabled)
